@@ -131,7 +131,7 @@ export default function AboutSection() {
         >
           <Image
             alt="Photo"
-            src="/assets/about section/photo.svg"
+            src="/assets/about section/photo.png"
             width={1000}
             height={1000}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-auto"

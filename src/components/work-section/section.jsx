@@ -184,13 +184,13 @@ export default function WorkSection() {
     {
       name: "design-2",
       image: "design 2.svg",
-      imageHover: "design-2-hover.png",
+      imageHover: "design-2-hover.jpg",
       rotate: "90",
     },
     {
       name: "design-3",
       image: "design 3.svg",
-      imageHover: "design-3-hover.png",
+      imageHover: "design-3-hover.jpg",
       rotate: "0",
     },
     {
@@ -202,13 +202,13 @@ export default function WorkSection() {
     {
       name: "design-5",
       image: "design 5.svg",
-      imageHover: "design-5-hover.png",
+      imageHover: "design-5-hover.jpg",
       rotate: "270",
     },
     {
       name: "design-6",
       image: "design 6.svg",
-      imageHover: "design-6-hover.png",
+      imageHover: "design-6-hover.jpg",
       rotate: "0",
     },
   ];
@@ -216,7 +216,7 @@ export default function WorkSection() {
     {
       name: "website-1",
       image: "website 1.svg",
-      imageHover: "website-1-hover.png",
+      imageHover: "website-1-hover.jpg",
       projectUrl: "https://maxsten.vercel.app",
     },
 ];
