@@ -141,7 +141,7 @@ export default function CtaSection() {
               setIsOpen(false);
               router.push("https://github.com/aliyyulmunifrpx");
             }}
-            className="cursor-pointer invert"
+            className="cursor-pointer pointer-events-auto invert"
           />
           <p className="text-base text-white">
             Made With ♥ by{" "}
