@@ -41,7 +41,7 @@ export default function Navbar() {
         });
       },
       {
-        threshold: 0.5,
+        threshold: 0.2,
       },
     );
 
@@ -112,7 +112,7 @@ export default function Navbar() {
           alt="Navbar decoration"
           width={1920}
           height={64}
-          className="absolute -bottom-[15%] left-0 w-full h-auto z-0"
+          className="hidden lg:block absolute -bottom-[15%] left-0 w-full h-auto z-0"
         />
       </div>
 

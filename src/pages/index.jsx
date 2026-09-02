@@ -4,7 +4,6 @@ import AboutSection from "../components/about-section/section.jsx";
 import WorkSection from "../components/work-section/section.jsx";
 import SkillsSection from "../components/skills-section/section.jsx";
 import CtaSection from "../components/cta-section/section.jsx";
-import Footer from "../components/footer.jsx";
 
 export default function Home() {
   return (
@@ -24,7 +23,6 @@ export default function Home() {
       <section id="cta">
         <CtaSection></CtaSection>{" "}
       </section>{" "}
-      <Footer></Footer>
     </MainLayout>
   );
 }

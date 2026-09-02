@@ -117,7 +117,7 @@ function WebsiteCard({ image, imageHover, projectUrl }) {
   const route = useRouter();
   return (
     <div
-      className="relative w-full pointer-events-auto cursor-pointer"
+      className="grid grid-cols-1 grid-rows-1 w-full pointer-events-auto cursor-pointer"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onClick={() => route.push(projectUrl)}
@@ -129,7 +129,7 @@ function WebsiteCard({ image, imageHover, projectUrl }) {
         width={1518}
         height={870}
         className={`
-          absolute inset-0 z-0 w-full h-auto p-[5%]
+          row-start-1 col-start-1 z-0 w-full h-auto p-[5%]
          
         `}
       />
@@ -148,7 +148,7 @@ function WebsiteCard({ image, imageHover, projectUrl }) {
           duration: 1,
           ease: "easeOut",
         }}
-        className={`absolute inset-0 z-0 w-full h-full `}
+        className={` row-start-1 col-start-1 z-0 w-full h-auto `}
       >
         <Image
           alt=""
@@ -156,7 +156,7 @@ function WebsiteCard({ image, imageHover, projectUrl }) {
           width={1518}
           height={870}
           className={`
-          absolute inset-0 z-0 w-full h-auto p-[5%]
+          z-0 w-full h-auto p-[5%]
        
         `}
         />
@@ -168,7 +168,7 @@ function WebsiteCard({ image, imageHover, projectUrl }) {
         src="/assets/work section/horizontal border.svg"
         width={1518}
         height={870}
-        className="absolute inset-0 z-10 w-full -top-[1%] p-[5%]"
+        className=" row-start-1 col-start-1 z-10 w-full -top-[1%] p-[5%]"
       />
     </div>
   );
@@ -219,64 +219,34 @@ export default function WorkSection() {
       imageHover: "website-1-hover.png",
       projectUrl: "https://maxsten.vercel.app",
     },
-  ];
+];
   return (
-    <div className="relative min-h-[200dvh] w-full ">
-      <motion.div
-        initial={{ opacity: 0, x: 30, scale: 1.3 }}
-        whileInView={{ opacity: 1, x: 0, scale: 1 }}
-        viewport={{ once: false }}
-        transition={{
-          duration: 0.5,
-          ease: "easeInOut",
-          delay: 0.5,
-        }}
-        className="absolute -right-[5%] bottom-[15%] w-72"
+    <div className="min-h-[100dvh] flex flex-col w-full mb-24 ">
+      <motion.p
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="text-5xl lg:text-6xl text-[#4105F7] text-center mb-8 "
       >
-        <motion.div
-          animate={{
-            x: [-10, 10, -10],
-          }}
-          transition={{
-            duration: 2.5,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        >
-          <Image
-            alt="Plaster"
-            src="/assets/work section/plaster.svg"
-            width={100}
-            height={100}
-            className="w-72"
-          />
-        </motion.div>
-      </motion.div>
-      <div className="absolute flex flex-col p-8 inset-0 w-full">
+        What I&apos;ve Built
+      </motion.p>
+      <div className="flex flex-col px-4 lg:px-8 w-full h-full">
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="text-7xl text-[#4105F7] text-center mb-8 "
-        >
-          What I&apos;ve Built
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
-          className="text-5xl pl-8 text-[#4105F7] text-start "
+          className="text-3xl pl-8 text-[#4105F7] text-start "
         >
           On Paper
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
-          className="grid w-full grid-cols-3 mb-8"
+          className="grid w-full grid-cols-2 lg:grid-cols-3"
         >
           {Design.map((item) => {
             return (
@@ -289,21 +259,24 @@ export default function WorkSection() {
             );
           })}
         </motion.div>
+      </div>
+
+      <div className="flex flex-col px-4 lg:px-8 pt-4  w-full h-full">
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="text-5xl pl-8 text-[#4105F7] text-start "
+          className="text-3xl pl-8 text-[#4105F7] text-start "
         >
           On Screen
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
-          className="grid w-full grid-cols-2 mb-8"
+          className="grid w-full grid-cols-1 lg:grid-cols-2 h-full"
         >
           {Website.map((item) => {
             return (

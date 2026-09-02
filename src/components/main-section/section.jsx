@@ -3,12 +3,12 @@ import Link from "next/link.js";
 import { motion } from "framer-motion";
 export default function MainSection() {
   return (
-    <div className="grid w-full min-h-[100dvh] grid-cols-3 grid-rows-3">
+    <div className="grid w-full h-[100dvh] grid-cols-3 grid-rows-3">
       <div className="row-start-2 flex flex-col items-center justify-center gap-8 col-start-1 col-end-4">
         <motion.p
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-5xl lg:text-8xl text-[#4105f7]"
         >
@@ -16,7 +16,7 @@ export default function MainSection() {
           <motion.span
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.5 }}
             className="text-5xl lg:text-8xl text-[#4105f7]"
           >
@@ -27,9 +27,9 @@ export default function MainSection() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
-          className="text-lglg:text-2xl text-center text-[#000000] "
+          className="text-lg lg:text-2xl text-center text-[#000000] "
         >
           {"Hey, I'm Aliyyul Munif, welcome to my"} <br />{" "}
           <span> little corner of the internet</span>
@@ -39,7 +39,7 @@ export default function MainSection() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         animate={{ y: [0, -5, 0] }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{
           opacity: {
             duration: 1.5,
@@ -51,12 +51,12 @@ export default function MainSection() {
             repeat: Infinity,
           },
         }}
-        className="hidden lg:block row-start-1 row-end-3 p-24 col-start-1"
+        className="hidden lg:block row-start-1 row-end-2 flex col-start-1"
       >
         <Image
-          width={1920}
-          height={1080}
-          className="w-full h-auto"
+          width={100}
+          height={100}
+          className="w-full h-full translate-y-20"
           alt="lightning"
           src="/assets/main section/lightning.svg"
         />
@@ -65,7 +65,7 @@ export default function MainSection() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         animate={{ rotate: [0, 5, 0] }}
-        viewport={{ once: false }}
+        viewport={{ once: true }}
         transition={{
           opacity: {
             duration: 1.5,
@@ -80,9 +80,9 @@ export default function MainSection() {
         className="hidden lg:block row-start-2 row-end-4 p-24 col-start-3 "
       >
         <Image
-          width={1920}
-          height={1080}
-          className="w-[60%] ml-auto h-full "
+          width={100}
+          height={100}
+          className="w-full ml-auto h-full "
           alt="scribble"
           src="/assets/main section/scribble.svg"
         />
@@ -91,7 +91,7 @@ export default function MainSection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
           className="relative w-full absolute"
         >
@@ -110,7 +110,7 @@ export default function MainSection() {
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 1.5 }}
           className="relative w-full absolute"
         >
