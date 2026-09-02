@@ -132,17 +132,19 @@ export default function CtaSection() {
           <p className="text-base text-white">
             © 2026 Aliyyul. All rights reserved.
           </p>
-          <Image
-            alt="github"
-            src="/assets/github.svg"
-            width={35}
-            height={35}
-            onClick={() => {
-              setIsOpen(false);
-              router.push("https://github.com/aliyyulmunifrpx");
-            }}
-            className="pointer-events-auto invert"
-          />
+         <Link
+  href="https://github.com/aliyyulmunifrpx"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Image
+    alt="github"
+    src="/assets/github.svg"
+    width={35}
+    height={35}
+    className="invert cursor-pointer"
+  />
+</Link>
           <p className="text-base text-white">
             Made With ♥ by{" "}
             <Link
