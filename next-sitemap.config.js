@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://namadomainmu.com",
+  siteUrl: "https://alymnf.my.id.com",
   generateRobotsTxt: true,
 };
