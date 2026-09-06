@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router.js";
 
-function DesignCard({ image, rotate = 0, imageHover }) {
+function DesignCard({ image, rotate = 0, imageHover, alt }) {
   const cardRef = useRef(null);
   const pathRef = useRef(null);
   const timelineRef = useRef(null);
@@ -56,7 +56,7 @@ function DesignCard({ image, rotate = 0, imageHover }) {
     >
       {/* IMAGE NORMAL */}
       <Image
-        alt=""
+        alt={alt}
         src={`/assets/work section/${image}`}
         fill
         className="absolute inset-0 z-0 w-full p-[10%] pointer-events-none"
@@ -91,6 +91,7 @@ function DesignCard({ image, rotate = 0, imageHover }) {
 
         {/* Gambar Hover dimasukkan langsung ke SVG dengan atribut mask */}
         <image
+          alt={alt}
           href={`/assets/work section/${imageHover}`}
           width="2671"
           height="2537"
@@ -112,7 +113,7 @@ function DesignCard({ image, rotate = 0, imageHover }) {
     </div>
   );
 }
-function WebsiteCard({ image, imageHover, projectUrl }) {
+function WebsiteCard({ image, imageHover, projectUrl, alt }) {
   const [isHover, setIsHover] = useState(false);
   const route = useRouter();
   return (
@@ -124,7 +125,7 @@ function WebsiteCard({ image, imageHover, projectUrl }) {
     >
       {/* Website normal */}
       <Image
-        alt="website thumbnail"
+        alt={alt}
         src={`/assets/work section/${image}`}
         width={1518}
         height={870}
@@ -164,7 +165,7 @@ function WebsiteCard({ image, imageHover, projectUrl }) {
 
       {/* Border */}
       <Image
-        alt=""
+        alt={alt}
         src="/assets/work section/horizontal border.svg"
         width={1518}
         height={870}
@@ -179,36 +180,42 @@ export default function WorkSection() {
       name: "design-1",
       image: "design 1.svg",
       imageHover: "design-1-hover.svg",
+      alt: "The Maxsten logo design is simple and elegant",
       rotate: "0",
     },
     {
       name: "design-2",
       image: "design 2.svg",
       imageHover: "design-2-hover.jpg",
+      alt: "Promotional poster design for a refreshing beverage",
       rotate: "90",
     },
     {
       name: "design-3",
       image: "design 3.svg",
       imageHover: "design-3-hover.jpg",
+      alt: "digital poster design, digital imaging, Photoshop manipulation, cool soccer player",
       rotate: "0",
     },
     {
       name: "design-4",
       image: "design 4.svg",
       imageHover: "design-4-hover.svg",
+      alt: "Metavisi Nusantara Academy Logo Design: Elegant and Simple",
       rotate: "180",
     },
     {
       name: "design-5",
       image: "design 5.svg",
       imageHover: "design-5-hover.jpg",
+      alt: "Promotional poster design for expensive, luxurious purple shoes",
       rotate: "270",
     },
     {
       name: "design-6",
       image: "design 6.svg",
       imageHover: "design-6-hover.jpg",
+      alt: "digital poster design, digital imaging, Photoshop manipulation, cool soccer player",
       rotate: "0",
     },
   ];
@@ -217,12 +224,13 @@ export default function WorkSection() {
       name: "website-1",
       image: "website 1.svg",
       imageHover: "website-1-hover.jpg",
+      alt: "website system for managing SME queues",
       projectUrl: "https://maxsten.vercel.app",
     },
-];
+  ];
   return (
     <div className="min-h-[100dvh] flex flex-col w-full mb-24 ">
-      <motion.p
+      <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -230,9 +238,9 @@ export default function WorkSection() {
         className="text-5xl lg:text-6xl text-[#4105F7] text-center mb-8 "
       >
         What I&apos;ve Built
-      </motion.p>
+      </motion.h2>
       <div className="flex flex-col px-4 lg:px-8 w-full h-full">
-        <motion.p
+        <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -240,7 +248,7 @@ export default function WorkSection() {
           className="text-3xl pl-8 text-[#4105F7] text-start "
         >
           On Paper
-        </motion.p>
+        </motion.h3>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -251,6 +259,7 @@ export default function WorkSection() {
           {Design.map((item) => {
             return (
               <DesignCard
+                alt={item.alt}
                 key={item.name}
                 imageHover={item.imageHover}
                 image={item.image}
@@ -262,7 +271,7 @@ export default function WorkSection() {
       </div>
 
       <div className="flex flex-col px-4 lg:px-8 pt-4  w-full h-full">
-        <motion.p
+        <motion.h3
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -270,7 +279,7 @@ export default function WorkSection() {
           className="text-3xl pl-8 text-[#4105F7] text-start "
         >
           On Screen
-        </motion.p>
+        </motion.h3>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -282,6 +291,7 @@ export default function WorkSection() {
             return (
               <WebsiteCard
                 key={item.name}
+                alt={item.alt}
                 imageHover={item.imageHover}
                 image={item.image}
                 projectUrl={item.projectUrl}

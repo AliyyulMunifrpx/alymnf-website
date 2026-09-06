@@ -173,7 +173,7 @@ export default function AboutSection() {
         transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
         className="col-start-1 lg:col-start-2 lg:col-end-4 row-start-2 lg:row-start-1 lg:row-end-4 w-full h-full flex flex-col gap-4 mt-4 lg:mt-0 lg:gap-8 px-8 lg:pr-16 lg:pl-0 justify-center"
       >
-        <p className="text-3xl lg:text-5xl text-start w-full mt-8 lg:mt-0 text-[#4105f7]">About Me</p>
+        <h2 className="text-3xl lg:text-5xl text-start w-full mt-8 lg:mt-0 text-[#4105f7]">About Me</h2>
         <p className="text-lg lg:text-2xl text-[#000000] text-justify w-full">
           It started with graphic design, playing with layouts, typography,
           colors that felt right. Somewhere along the way, curiosity got the

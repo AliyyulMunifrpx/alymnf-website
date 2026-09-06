@@ -5,7 +5,7 @@ export default function MainSection() {
   return (
     <div className="grid w-full h-[100dvh] grid-cols-3 grid-rows-3">
       <div className="row-start-2 flex flex-col items-center justify-center gap-8 col-start-1 col-end-4">
-        <motion.p
+        <motion.h1
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -23,7 +23,7 @@ export default function MainSection() {
             x
           </motion.span>{" "}
           Code
-        </motion.p>
+        </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

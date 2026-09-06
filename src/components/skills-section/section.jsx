@@ -285,7 +285,7 @@ export default function SkillsSection() {
           />
         </motion.div>
       </motion.div>
-      <motion.p
+      <motion.h2
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -293,7 +293,7 @@ export default function SkillsSection() {
         className="col-start-1 lg:col-start-2 row-start-1 text-center text-5xl lg:text-6xl text-[#4105F7]"
       >
         What I Build With
-      </motion.p>
+      </motion.h2>
 
       <div className="col-start-1 lg:col-end-4 row-start-1 row-end-4 h-full w-full grid grid-cols-3 grid-rows-3">
         <div className="h-full w-full  col-start-2 col-end-3 row-start-2 row-end-3 grid grid-cols-1 grid-rows-1">
