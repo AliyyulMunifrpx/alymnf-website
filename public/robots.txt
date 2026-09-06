@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://namadomainmu.com
+Host: https://alymnf.my.id.com
 
 # Sitemaps
-Sitemap: https://namadomainmu.com/sitemap.xml
+Sitemap: https://alymnf.my.id.com/sitemap.xml
