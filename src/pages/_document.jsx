@@ -3,7 +3,19 @@ import { Html, Head, Main, NextScript } from "next/document";
 export default function Document() {
   return (
     <Html lang="en">
-      <Head />
+      <Head>
+        <link
+          rel="icon"
+          href="/assets/favicon-light.webp"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="icon"
+          href="/assets/favicon-dark.webp"
+          media="(prefers-color-scheme: dark)"
+        />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
       <body className="antialiased">
         <Main />
         <NextScript />

@@ -102,7 +102,7 @@ export default function MainSection() {
           </div>
           <div className="absolute flex items-center justify-center w-full top-1/2 left-1/2 px-4 py-2 border-4 border-[#4105f7] rounded-full bg-[#4105f7] z-0 -translate-x-1/2">
             {" "}
-            <Link href="#work" className="text-md lg:text-xl">
+            <Link href="#work" className="text-md text-white lg:text-xl">
               View My Work
             </Link>
           </div>
