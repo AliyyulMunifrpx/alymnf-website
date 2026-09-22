@@ -231,7 +231,7 @@ export default function WorkSection() {
   const Website = [
     {
       name: "Maxsten",
-      image: "website 1.webp",
+      image: "website-1.webp",
       imageHover: "website-1-hover.webp",
       alt: "Maxsten self-order and queue management website",
       projectUrl: "https://maxsten.vercel.app",
