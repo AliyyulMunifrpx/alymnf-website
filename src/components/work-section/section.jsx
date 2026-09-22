@@ -174,7 +174,7 @@ function WebsiteCard({ image, imageHover, projectUrl, alt }) {
       {/* Border */}
       <Image
         alt={alt}
-        src="/assets/work section/horizontal border.svg"
+        src="/assets/work section/border-horizontal.webp"
         width={1518}
         height={870}
         className=" row-start-1 col-start-1 z-10 w-full -top-[1%] p-[5%]"
@@ -230,14 +230,34 @@ export default function WorkSection() {
   ];
   const Website = [
     {
-      name: "website-1",
-      image: "website 1.svg",
-      imageHover: "website-1-hover.jpg",
-      alt: "website system for managing SME queues",
+      name: "Maxsten",
+      image: "website 1.webp",
+      imageHover: "website-1-hover.webp",
+      alt: "Maxsten self-order and queue management website",
       projectUrl: "https://maxsten.vercel.app",
     },
+    {
+      name: "Rnee",
+      image: "website-2.webp",
+      imageHover: "website-2-hover.webp",
+      alt: "Rnee premium parfume website",
+      projectUrl: "https://rnee-demo.vercel.app",
+    },
+    {
+      name: "Satnight",
+      image: "website-3.webp",
+      imageHover: "website-3-hover.webp",
+      alt: "Satnight rental kamera website",
+      projectUrl: "https://satnight-demo.vercel.app",
+    },
+    {
+      name: "Munivy",
+      image: "website-4.webp",
+      imageHover: "website-4-hover.webp",
+      alt: "Munivy rental iphone website",
+      projectUrl: "https://munivy.vercel.app",
+    },
   ];
-
   return (
     <div className="min-h-[100dvh] flex flex-col w-full mb-24 ">
       <motion.h2
