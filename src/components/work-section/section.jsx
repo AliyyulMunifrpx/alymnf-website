@@ -4,6 +4,13 @@ import gsap from "gsap";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router.js";
 
+const reveal = {
+  initial: { y: 32 },
+  whileInView: { y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5, ease: "easeOut" },
+};
+
 function DesignCard({ image, rotate = 0, imageHover, alt }) {
   const cardRef = useRef(null);
   const pathRef = useRef(null);
@@ -113,6 +120,7 @@ function DesignCard({ image, rotate = 0, imageHover, alt }) {
     </div>
   );
 }
+
 function WebsiteCard({ image, imageHover, projectUrl, alt }) {
   const [isHover, setIsHover] = useState(false);
   const route = useRouter();
@@ -174,47 +182,48 @@ function WebsiteCard({ image, imageHover, projectUrl, alt }) {
     </div>
   );
 }
+
 export default function WorkSection() {
   const Design = [
     {
       name: "design-1",
-      image: "design 1.svg",
+      image: "design 1.webp",
       imageHover: "design-1-hover.svg",
       alt: "The Maxsten logo design is simple and elegant",
       rotate: "0",
     },
     {
       name: "design-2",
-      image: "design 2.svg",
-      imageHover: "design-2-hover.jpg",
+      image: "design 2.webp",
+      imageHover: "design-2-hover.webp",
       alt: "Promotional poster design for a refreshing beverage",
       rotate: "90",
     },
     {
       name: "design-3",
-      image: "design 3.svg",
-      imageHover: "design-3-hover.jpg",
+      image: "design 3.webp",
+      imageHover: "design-3-hover.webp",
       alt: "digital poster design, digital imaging, Photoshop manipulation, cool soccer player",
       rotate: "0",
     },
     {
       name: "design-4",
-      image: "design 4.svg",
+      image: "design 4.webp",
       imageHover: "design-4-hover.svg",
       alt: "Metavisi Nusantara Academy Logo Design: Elegant and Simple",
       rotate: "180",
     },
     {
       name: "design-5",
-      image: "design 5.svg",
-      imageHover: "design-5-hover.jpg",
+      image: "design 5.webp",
+      imageHover: "design-5-hover.webp",
       alt: "Promotional poster design for expensive, luxurious purple shoes",
       rotate: "270",
     },
     {
       name: "design-6",
-      image: "design 6.svg",
-      imageHover: "design-6-hover.jpg",
+      image: "design 6.webp",
+      imageHover: "design-6-hover.webp",
       alt: "digital poster design, digital imaging, Photoshop manipulation, cool soccer player",
       rotate: "0",
     },
@@ -228,77 +237,68 @@ export default function WorkSection() {
       projectUrl: "https://maxsten.vercel.app",
     },
   ];
+
   return (
     <div className="min-h-[100dvh] flex flex-col w-full mb-24 ">
       <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
+        {...reveal}
         className="text-5xl lg:text-6xl text-[#4105F7] text-center mb-8 "
       >
         What I&apos;ve Built
       </motion.h2>
       <div className="flex flex-col px-4 lg:px-8 w-full h-full">
         <motion.h3
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.3 }}
+          {...reveal}
+          transition={{ ...reveal.transition, delay: 0.1 }}
           className="text-3xl pl-8 text-[#4105F7] text-start "
         >
           On Paper
         </motion.h3>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
-          className="grid w-full grid-cols-2 lg:grid-cols-3"
-        >
-          {Design.map((item) => {
+        <div className="grid w-full grid-cols-2 lg:grid-cols-3">
+          {Design.map((item, index) => {
             return (
-              <DesignCard
-                alt={item.alt}
+              <motion.div
                 key={item.name}
-                imageHover={item.imageHover}
-                image={item.image}
-                rotate={item.rotate}
-              ></DesignCard>
+                {...reveal}
+                transition={{ ...reveal.transition, delay: index * 0.3 }}
+              >
+                <DesignCard
+                  alt={item.alt}
+                  imageHover={item.imageHover}
+                  image={item.image}
+                  rotate={item.rotate}
+                ></DesignCard>
+              </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
 
       <div className="flex flex-col px-4 lg:px-8 pt-4  w-full h-full">
         <motion.h3
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          {...reveal}
           className="text-3xl pl-8 text-[#4105F7] text-start "
         >
           On Screen
         </motion.h3>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
-          className="grid w-full grid-cols-1 lg:grid-cols-2 h-full"
-        >
-          {Website.map((item) => {
+        <div className="grid w-full grid-cols-1 lg:grid-cols-2 h-full">
+          {Website.map((item, index) => {
             return (
-              <WebsiteCard
+              <motion.div
                 key={item.name}
-                alt={item.alt}
-                imageHover={item.imageHover}
-                image={item.image}
-                projectUrl={item.projectUrl}
-              ></WebsiteCard>
+                {...reveal}
+                transition={{ ...reveal.transition, delay: index * 0.3 }}
+              >
+                <WebsiteCard
+                  alt={item.alt}
+                  imageHover={item.imageHover}
+                  image={item.image}
+                  projectUrl={item.projectUrl}
+                ></WebsiteCard>
+              </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

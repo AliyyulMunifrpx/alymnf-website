@@ -151,8 +151,8 @@ export default function SkillsSection() {
   const skills = [
     {
       alt: "Photoshop",
-      src: "/assets/skills section/photoshop.svg",
-      imageHover: "/assets/skills section/photoshop-hover.svg",
+      src: "/assets/skills section/photoshop.webp",
+      imageHover: "/assets/skills section/photoshop-hover.webp",
       position: { x: "-25vw", y: "-25vh" },
       delay: 0,
       topAnimation: 50,
@@ -160,8 +160,8 @@ export default function SkillsSection() {
     },
     {
       alt: "Node",
-      src: "/assets/skills section/node.svg",
-      imageHover: "/assets/skills section/node-hover.svg",
+      src: "/assets/skills section/nodejs.webp",
+      imageHover: "/assets/skills section/node-hover.webp",
       position: { x: "-35vw", y: "-5vh" },
       delay: 0.1,
       topAnimation: 30,
@@ -169,8 +169,8 @@ export default function SkillsSection() {
     },
     {
       alt: "Express",
-      src: "/assets/skills section/express.svg",
-      imageHover: "/assets/skills section/express-hover.svg",
+      src: "/assets/skills section/express.webp",
+      imageHover: "/assets/skills section/express-hover.webp",
       position: { x: "-20vw", y: "25vh" },
       delay: 0.2,
       topAnimation: -30,
@@ -178,8 +178,8 @@ export default function SkillsSection() {
     },
     {
       alt: "JavaScript",
-      src: "/assets/skills section/javascript.svg",
-      imageHover: "/assets/skills section/javascript-hover.svg",
+      src: "/assets/skills section/javascript.webp",
+      imageHover: "/assets/skills section/javascript-hover.webp",
       position: { x: "20vw", y: "-20vh" },
       delay: 0.6,
       topAnimation: 30,
@@ -187,8 +187,8 @@ export default function SkillsSection() {
     },
     {
       alt: "React",
-      src: "/assets/skills section/react.svg",
-      imageHover: "/assets/skills section/react-hover.svg",
+      src: "/assets/skills section/react.webp",
+      imageHover: "/assets/skills section/react-hover.webp",
       position: { x: "35vw", y: "0vh" },
       delay: 0.5,
       topAnimation: 10,
@@ -196,8 +196,8 @@ export default function SkillsSection() {
     },
     {
       alt: "Canva",
-      src: "/assets/skills section/canva.svg",
-      imageHover: "/assets/skills section/canva-hover.svg",
+      src: "/assets/skills section/canva.webp",
+      imageHover: "/assets/skills section/canva-hover.webp",
       position: { x: "20vw", y: "30vh" },
       delay: 0.4,
       topAnimation: -50,
@@ -205,8 +205,8 @@ export default function SkillsSection() {
     },
     {
       alt: "Figma",
-      src: "/assets/skills section/figma.svg",
-      imageHover: "/assets/skills section/figma-hover.svg",
+      src: "/assets/skills section/figma.webp",
+      imageHover: "/assets/skills section/figma-hover.webp",
       position: { x: "0vw", y: "40vh" },
       delay: 0.3,
       topAnimation: -50,
@@ -221,24 +221,19 @@ export default function SkillsSection() {
     return (
       <div className="grid grid-cols-1 grid-rows-1 min-h-[100dvh]  w-full">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 30 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeInOut", delay: 0 }}
           className="col-start-1 row-start-1 h-full w-full"
         >
-          <motion.div
-            animate={{ rotate: [0, 5, -5, 0] }}
-            transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
-          >
-            <Image
-              alt="Crown"
-              src="/assets/skills section/crown.svg"
-              width={50}
-              height={50}
-              className="h-[30%] w-[30%] -translate-y-[100%] translate-x-[270%]"
-            />
-          </motion.div>
+          <Image
+            alt="Crown"
+            src="/assets/skills section/crown.svg"
+            width={50}
+            height={50}
+            className="h-[30%] w-[30%] -translate-y-[100%] translate-x-[270%]"
+          />
         </motion.div>
         <div className="col-start-1 row-start-1">
           <p className="text-center px-8 text-5xl text-[#4105F7]">
@@ -266,28 +261,23 @@ export default function SkillsSection() {
   return (
     <div className=" grid grid-cols-1 lg:grid-cols-3 grid-rows-3  h-[100dvh] w-full">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 30 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0 }}
         className="col-start-1 lg:col-start-3  row-start-1 h-full w-full"
       >
-        <motion.div
-          animate={{ rotate: [0, 5, -5, 0] }}
-          transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
-        >
-          <Image
-            alt="Crown"
-            src="/assets/skills section/crown.svg"
-            width={50}
-            height={50}
-            className="h-[30%] w-[30%] -translate-y-[70%]"
-          />
-        </motion.div>
+        <Image
+          alt="Crown"
+          src="/assets/skills section/crown.svg"
+          width={50}
+          height={50}
+          className="h-[60%] w-[60%] -translate-y-[70%]"
+        />
       </motion.div>
       <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 30 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
         className="col-start-1 lg:col-start-2 row-start-1 text-center text-5xl lg:text-6xl text-[#4105F7]"
@@ -357,8 +347,8 @@ export default function SkillsSection() {
           </motion.div>
 
           <motion.p
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: -30 }}
+            whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
             className="text-[#000000]  text-center text-2xl"

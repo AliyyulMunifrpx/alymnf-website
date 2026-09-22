@@ -11,7 +11,7 @@ export default function MainLayout({ children }) {
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
-          src="/assets/background.svg"
+          src="/assets/background.webp"
         ></Image>
       </div>{" "}
       {/* <div className=" absolute z-0 inset-0 h-[100dvh] fixed "> ... */}

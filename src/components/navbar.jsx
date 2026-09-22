@@ -149,7 +149,7 @@ export default function Navbar() {
               </p>
               <Image
                 alt="github"
-                src="/assets/github.svg"
+                src="/assets/github.webp"
                 width={35}
                 height={35}
                 onClick={() => {
@@ -180,7 +180,7 @@ export default function Navbar() {
         </p>
         <Image
           alt="github"
-          src="/assets/github.svg"
+          src="/assets/github.webp"
           width={35}
           height={35}
           onClick={() => router.push("https://github.com/aliyyulmunifrpx")}
