@@ -116,7 +116,7 @@ export default function AboutSection() {
         <h2 className="text-3xl lg:text-5xl text-start w-full mt-8 lg:mt-0 text-[#4105f7]">
           About Me
         </h2>
-        <p className="text-lg lg:text-2xl text-[#000000] text-justify w-full">
+        <p className="text-lg lg:text-2xl text-[#000000] font-poppins text-justify w-full">
           It started with graphic design, playing with layouts, typography,
           colors that felt right. Somewhere along the way, curiosity got the
           better of me, and I wanted to know what happens when a design actually

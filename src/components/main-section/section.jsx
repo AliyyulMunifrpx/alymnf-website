@@ -30,7 +30,7 @@ export default function MainSection() {
           whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-lg lg:text-2xl text-center text-[#000000] "
+          className="text-lg lg:text-2xl text-center font-poppins text-[#000000] "
         >
           {"Hey, I'm Aliyyul Munif, welcome to my"} <br />{" "}
           <span> little corner of the internet</span>

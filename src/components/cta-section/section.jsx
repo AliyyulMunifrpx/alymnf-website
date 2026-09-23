@@ -57,7 +57,7 @@ export default function CtaSection() {
           whileInView={{ y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeInOut", delay: 0.5 }}
-          className="text-lg lg:text-2xl text-[#000000] mt-8 text-center"
+          className="text-lg lg:text-2xl text-[#000000] mt-8 font-poppins text-center"
         >
           Currently open to Frontend/Full-Stack opportunities, always happy to
           hear about interesting projects too.{" "}

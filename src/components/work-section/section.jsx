@@ -3,6 +3,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import gsap from "gsap";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router.js";
+import { Website } from "../../../data/website.js";
+import { Design } from "../../../data/design.js";
 
 const reveal = {
   initial: { y: 32 },
@@ -121,15 +123,28 @@ function DesignCard({ image, rotate = 0, imageHover, alt }) {
   );
 }
 
-function WebsiteCard({ image, imageHover, projectUrl, alt }) {
+function WebsiteCard({ image, imageHover, slug, alt }) {
   const [isHover, setIsHover] = useState(false);
   const route = useRouter();
+
+  const handleClick = () => {
+    route.push(`/projects/${slug}`);
+  };
+
   return (
     <div
       className="grid grid-cols-1 grid-rows-1 w-full pointer-events-auto cursor-pointer"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      onClick={() => route.push(projectUrl)}
+      onClick={handleClick}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          handleClick();
+        }
+      }}
     >
       {/* Website normal */}
       <Image
@@ -137,10 +152,7 @@ function WebsiteCard({ image, imageHover, projectUrl, alt }) {
         src={`/assets/work section/${image}`}
         width={1518}
         height={870}
-        className={`
-          row-start-1 col-start-1 z-0 w-full h-auto p-[5%]
-         
-        `}
+        className="row-start-1 col-start-1 z-0 w-full h-auto p-[5%]"
       />
 
       {/* Website hover */}
@@ -157,107 +169,29 @@ function WebsiteCard({ image, imageHover, projectUrl, alt }) {
           duration: 1,
           ease: "easeOut",
         }}
-        className={` row-start-1 col-start-1 z-0 w-full h-auto `}
+        className="row-start-1 col-start-1 z-0 w-full h-auto"
       >
         <Image
           alt=""
           src={`/assets/work section/${imageHover}`}
           width={1518}
           height={870}
-          className={`
-          z-0 w-full h-auto p-[5%]
-       
-        `}
+          className="z-0 w-full h-auto p-[5%]"
         />
       </motion.div>
 
       {/* Border */}
       <Image
-        alt={alt}
+        alt=""
         src="/assets/work section/border-horizontal.webp"
         width={1518}
         height={870}
-        className=" row-start-1 col-start-1 z-10 w-full -top-[1%] p-[5%]"
+        className="row-start-1 col-start-1 z-10 w-full -top-[1%] p-[5%]"
       />
     </div>
   );
 }
-
 export default function WorkSection() {
-  const Design = [
-    {
-      name: "design-1",
-      image: "design 1.webp",
-      imageHover: "design-1-hover.svg",
-      alt: "The Maxsten logo design is simple and elegant",
-      rotate: "0",
-    },
-    {
-      name: "design-2",
-      image: "design 2.webp",
-      imageHover: "design-2-hover.webp",
-      alt: "Promotional poster design for a refreshing beverage",
-      rotate: "90",
-    },
-    {
-      name: "design-3",
-      image: "design 3.webp",
-      imageHover: "design-3-hover.webp",
-      alt: "digital poster design, digital imaging, Photoshop manipulation, cool soccer player",
-      rotate: "0",
-    },
-    {
-      name: "design-4",
-      image: "design 4.webp",
-      imageHover: "design-4-hover.svg",
-      alt: "Metavisi Nusantara Academy Logo Design: Elegant and Simple",
-      rotate: "180",
-    },
-    {
-      name: "design-5",
-      image: "design 5.webp",
-      imageHover: "design-5-hover.webp",
-      alt: "Promotional poster design for expensive, luxurious purple shoes",
-      rotate: "270",
-    },
-    {
-      name: "design-6",
-      image: "design 6.webp",
-      imageHover: "design-6-hover.webp",
-      alt: "digital poster design, digital imaging, Photoshop manipulation, cool soccer player",
-      rotate: "0",
-    },
-  ];
-  const Website = [
-    {
-      name: "Maxsten",
-      image: "website-1.webp",
-      imageHover: "website-1-hover.webp",
-      alt: "Maxsten self-order and queue management website",
-      projectUrl: "https://maxsten.vercel.app",
-    },
-    {
-      name: "Rnee",
-      image: "website-2.webp",
-      imageHover: "website-2-hover.webp",
-      alt: "Rnee premium parfume website",
-      projectUrl: "https://rnee-demo.vercel.app",
-    },
-    {
-      name: "Satnight",
-      image: "website-3.webp",
-      imageHover: "website-3-hover.webp",
-      alt: "Satnight rental kamera website",
-      projectUrl: "https://satnight-demo.vercel.app",
-    },
-    {
-      name: "Munivy",
-      image: "website-4.webp",
-      imageHover: "website-4-hover.webp",
-      alt: "Munivy rental iphone website",
-      projectUrl: "https://munivy.vercel.app",
-    },
-  ];
   return (
     <div className="min-h-[100dvh] flex flex-col w-full mb-24 ">
       <motion.h2
@@ -311,6 +245,7 @@ export default function WorkSection() {
               >
                 <WebsiteCard
                   alt={item.alt}
+                  slug={item.slug}
                   imageHover={item.imageHover}
                   image={item.image}
                   projectUrl={item.projectUrl}

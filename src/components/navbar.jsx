@@ -6,9 +6,9 @@ import { useRouter } from "next/router.js";
 
 export default function Navbar() {
   const menu = [
-    { label: "About", href: "#about" },
-    { label: "Work", href: "#work" },
-    { label: "Skills", href: "#skills" },
+    { label: "About", href: "/#about" },
+    { label: "Work", href: "/#work" },
+    { label: "Skills", href: "/#skills" },
   ];
   const [active, setActive] = useState("");
   const [isOpen, setIsOpen] = useState(false);

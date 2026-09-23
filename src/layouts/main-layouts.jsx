@@ -3,7 +3,7 @@ import Navbar from "../components/navbar.jsx";
 
 export default function MainLayout({ children }) {
   return (
-    <div className="relative w-full min-h-[100dvh] bg-white overflow-x-hidden">
+    <div className="relative w-full min-h-[100dvh] bg-white overflow-x-clip">
       <div className="absolute z-10 inset-0 h-full fixed bg-[linear-gradient(to_right,#00000033_1px,transparent_1px),linear-gradient(to_bottom,#00000033_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       <div className=" absolute z-0 inset-0 h-[100dvh] fixed ">
         <Image
