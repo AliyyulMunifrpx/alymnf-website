@@ -14,44 +14,44 @@ export const Website = [
     projectUrl: "https://maxsten.vercel.app",
 
     shortDescription:
-      "Self-order dan queue management platform untuk membantu UMKM mengelola pesanan dengan lebih terstruktur.",
+      "A self-order and queue management platform to help SMEs manage orders in a more structured way.",
 
     description:
-      "Maxsten adalah aplikasi pemesanan mandiri berbasis QR Code yang dirancang untuk membantu warung, kafe, dan UMKM F&B mengelola pesanan secara lebih terstruktur.",
+      "Maxsten is a QR Code-based self-ordering application designed to help food stalls, cafes, and F&B SMEs manage their orders in a more structured manner.",
 
     problem: [
-      "Pesanan dapat terlewat ketika banyak pelanggan datang secara bersamaan.",
-      "Penjual harus mengingat banyak pesanan dalam waktu yang sama.",
-      "Pelanggan tidak selalu mengetahui perkembangan pesanannya.",
+      "Orders can be missed when many customers arrive at the same time.",
+      "Sellers have to remember multiple orders simultaneously.",
+      "Customers are not always aware of their order's progress.",
     ],
 
     solution:
-      "Maxsten memindahkan proses pemesanan langsung kepada pelanggan. Pelanggan cukup memindai QR Code, memilih produk, dan mengirim pesanan tanpa perlu membuat akun.",
+      "Maxsten shifts the ordering process directly to the customers. Customers simply scan a QR Code, select products, and submit their orders without needing to create an account.",
 
     features: [
       {
         number: "01",
         title: "QR Self-Order",
         description:
-          "Pelanggan dapat melakukan pemesanan langsung melalui smartphone tanpa perlu menginstal aplikasi.",
+          "Customers can place orders directly through their smartphones without installing an application.",
       },
       {
         number: "02",
         title: "Real-time Queue",
         description:
-          "Pesanan dapat dipantau berdasarkan status sehingga penjual dapat melihat antrean yang sedang berjalan.",
+          "Orders can be monitored based on their status, allowing sellers to view the ongoing queue.",
       },
       {
         number: "03",
         title: "Product Management",
         description:
-          "Penjual dapat mengelola produk, harga, varian, dan add-on.",
+          "Sellers can manage products, prices, variants, and add-ons.",
       },
       {
         number: "04",
         title: "Order Status",
         description:
-          "Status pesanan dapat diperbarui sehingga pelanggan mengetahui perkembangan pesanannya.",
+          "Order statuses can be updated so customers know the progress of their orders.",
       },
     ],
 
@@ -72,24 +72,24 @@ export const Website = [
         number: "01",
         title: "Concurrent Orders",
         description:
-          "Menangani kemungkinan beberapa pelanggan melakukan pemesanan pada waktu yang hampir bersamaan.",
+          "Handling the possibility of multiple customers placing orders at almost the same time.",
       },
       {
         number: "02",
         title: "Real-time Updates",
         description:
-          "Menyinkronkan perubahan status pesanan antara pelanggan dan penjual tanpa refresh manual.",
+          "Synchronizing order status changes between customers and sellers without manual refreshes.",
       },
       {
         number: "03",
         title: "Simple Ordering Flow",
         description:
-          "Membuat alur pemesanan yang mudah digunakan tanpa mengharuskan pelanggan membuat akun.",
+          "Creating an easy-to-use ordering flow without requiring customers to create an account.",
       },
     ],
 
     learning:
-      "Project ini memperdalam pengalaman dalam membangun aplikasi full-stack dari frontend hingga backend, termasuk database, validasi, autentikasi, real-time communication, dan state management.",
+      "This project deepened my experience in building a full-stack application from frontend to backend, including database design, validation, authentication, real-time communication, and state management.",
   },
 
   {
@@ -107,43 +107,43 @@ export const Website = [
     projectUrl: "https://rnee-demo.vercel.app",
 
     shortDescription:
-      "Website brand parfum dengan pendekatan visual minimal dan premium.",
+      "A perfume brand website with a minimal and premium visual approach.",
 
     description:
-      "Rnee merupakan konsep website untuk brand parfum yang berfokus pada visual, storytelling, dan presentasi produk.",
+      "Rnee is a website concept for a perfume brand focusing on visuals, storytelling, and product presentation.",
 
     problem: [
-      "Produk fragrance membutuhkan presentasi visual yang mampu menyampaikan karakter brand.",
-      "Informasi produk perlu disampaikan tanpa membuat halaman terasa terlalu padat.",
+      "Fragrance products require visual presentations capable of conveying the brand's character.",
+      "Product information needs to be conveyed without making the page feel cluttered.",
     ],
 
     solution:
-      "Website dirancang dengan pendekatan minimal, typography yang kuat, dan visual yang memberikan ruang bagi produk untuk menjadi fokus utama.",
+      "The website is designed with a minimalist approach, strong typography, and visuals that give room for the product to be the main focus.",
 
     features: [
       {
         number: "01",
         title: "Product Showcase",
         description:
-          "Produk ditampilkan dengan layout yang memberikan fokus pada visual dan identitas fragrance.",
+          "Products are displayed with a layout that focuses on the visual and identity of the fragrance.",
       },
       {
         number: "02",
         title: "Brand Storytelling",
         description:
-          "Konten disusun untuk membangun karakter dan suasana brand.",
+          "Content is structured to build the character and atmosphere of the brand.",
       },
       {
         number: "03",
         title: "Responsive Design",
         description:
-          "Layout disesuaikan untuk desktop maupun perangkat mobile.",
+          "The layout is optimized for both desktop and mobile devices.",
       },
       {
         number: "04",
         title: "Micro Interaction",
         description:
-          "Animasi digunakan untuk memberikan pengalaman browsing yang lebih hidup.",
+          "Animations are used to provide a livelier browsing experience.",
       },
     ],
 
@@ -154,18 +154,18 @@ export const Website = [
         number: "01",
         title: "Visual Balance",
         description:
-          "Menjaga keseimbangan antara typography, whitespace, gambar, dan elemen dekoratif.",
+          "Maintaining the balance between typography, whitespace, images, and decorative elements.",
       },
       {
         number: "02",
         title: "Responsive Layout",
         description:
-          "Memastikan visual tetap memiliki karakter yang sama pada berbagai ukuran layar.",
+          "Ensuring the visuals retain the same character across various screen sizes.",
       },
     ],
 
     learning:
-      "Project ini membantu memperdalam kemampuan dalam membangun website yang mengutamakan visual design, typography, responsive layout, dan micro-interactions.",
+      "This project helped deepen my skills in building websites that prioritize visual design, typography, responsive layouts, and micro-interactions.",
   },
 
   {
@@ -183,43 +183,43 @@ export const Website = [
     projectUrl: "https://satnight-demo.vercel.app",
 
     shortDescription:
-      "Website rental kamera yang menyederhanakan proses memilih kamera dan mengajukan penyewaan.",
+      "A camera rental website that simplifies the process of choosing a camera and requesting a rental.",
 
     description:
-      "Satnight merupakan website rental kamera yang dirancang untuk menyederhanakan proses dari memilih perangkat hingga mengajukan penyewaan. Website menyediakan katalog kamera yang lebih terstruktur, informasi rental yang lengkap, serta form rental yang mengumpulkan data pelanggan sebelum diteruskan langsung ke WhatsApp admin.",
+      "Satnight is a camera rental website designed to simplify the process from selecting a device to submitting a rental request. The website provides a structured camera catalog, comprehensive rental information, and a rental form that collects customer data before forwarding it directly to the admin's WhatsApp.",
 
     problem: [
-      "Katalog kamera yang disajikan secara manual dapat membuat pelanggan kesulitan menemukan perangkat yang sesuai karena harus melihat produk satu per satu.",
-      "Proses penyewaan membutuhkan banyak tanya jawab antara pelanggan dan admin untuk mengetahui harga, jaminan, dan informasi rental lainnya.",
+      "A manually presented camera catalog can make it difficult for customers to find the right device because they have to browse products one by one.",
+      "The rental process requires a lot of back-and-forth Q&A between the customer and the admin regarding pricing, guarantees, and other rental information.",
     ],
 
     solution:
-      "Satnight menyediakan katalog kamera yang lebih terstruktur sehingga pelanggan dapat melihat dan memilih perangkat dengan lebih mudah. Informasi harga, jaminan, dan ketentuan rental tersedia langsung di website. Setelah menemukan kamera yang diinginkan, pelanggan dapat mengisi form rental dan seluruh data yang dibutuhkan akan otomatis disusun dan dikirim ke WhatsApp admin sehingga mengurangi kebutuhan tanya jawab berulang.",
+      "Satnight provides a more structured camera catalog, making it easier for customers to view and select devices. Pricing, guarantees, and rental terms are available directly on the website. Once a customer finds the desired camera, they can fill out the rental form, and all necessary data is automatically compiled and sent to the admin's WhatsApp, reducing the need for repetitive Q&A.",
 
     features: [
       {
         number: "01",
         title: "Structured Camera Catalog",
         description:
-          "Menampilkan kamera dalam katalog yang terstruktur sehingga pelanggan dapat menjelajahi pilihan perangkat dengan lebih mudah.",
+          "Displays cameras in a structured catalog, allowing customers to easily explore device options.",
       },
       {
         number: "02",
         title: "Rental Information",
         description:
-          "Informasi harga, jaminan, dan ketentuan rental tersedia langsung sehingga pelanggan dapat memahami detail penyewaan sebelum menghubungi admin.",
+          "Pricing, guarantees, and rental terms are readily available so customers can understand the rental details before contacting the admin.",
       },
       {
         number: "03",
         title: "Rental Form",
         description:
-          "Form rental mengumpulkan data yang dibutuhkan pelanggan untuk mengajukan penyewaan.",
+          "The rental form collects the necessary data from customers to process a rental request.",
       },
       {
         number: "04",
         title: "WhatsApp Integration",
         description:
-          "Data rental otomatis disusun menjadi pesan WhatsApp yang lengkap dan dikirim kepada admin.",
+          "Rental data is automatically compiled into a complete WhatsApp message and sent to the admin.",
       },
     ],
 
@@ -230,24 +230,24 @@ export const Website = [
         number: "01",
         title: "Product Presentation",
         description:
-          "Mengubah katalog kamera menjadi pengalaman browsing produk yang terstruktur tanpa membuat halaman terasa penuh.",
+          "Transforming a camera catalog into a structured product browsing experience without making the page feel cluttered.",
       },
       {
         number: "02",
         title: "Rental Form Flow",
         description:
-          "Merancang form yang dapat mengumpulkan informasi penting dari pelanggan sebelum data diteruskan kepada admin.",
+          "Designing a form capable of collecting vital information from customers before forwarding the data to the admin.",
       },
       {
         number: "03",
         title: "WhatsApp Integration",
         description:
-          "Menyusun seluruh data dari form menjadi pesan WhatsApp yang lengkap sehingga admin tidak perlu menanyakan informasi yang sudah diberikan pelanggan.",
+          "Compiling all form data into a complete WhatsApp message so the admin doesn't need to ask for information the customer has already provided.",
       },
     ],
 
     learning:
-      "Project ini memperdalam pengalaman menggunakan React dan membangun website rental yang menggabungkan katalog produk, informasi penyewaan, form pengajuan, dan integrasi WhatsApp dalam satu alur yang sederhana.",
+      "This project deepened my experience in using React and building a rental website that combines a product catalog, rental information, submission form, and WhatsApp integration into one simple flow.",
   },
 
   {
@@ -265,43 +265,43 @@ export const Website = [
     projectUrl: "https://munivy.vercel.app",
 
     shortDescription:
-      "Website rental iPhone yang menyederhanakan proses memilih perangkat dan mengajukan penyewaan.",
+      "An iPhone rental website that simplifies the process of selecting a device and requesting a rental.",
 
     description:
-      "Munivy merupakan website rental iPhone yang dirancang untuk menyederhanakan proses dari memilih perangkat hingga mengajukan penyewaan. Website menggantikan katalog berbasis poster di Google Drive dengan katalog yang lebih terstruktur, sekaligus menyediakan form rental yang mengumpulkan informasi penting sebelum diteruskan langsung ke WhatsApp admin.",
+      "Munivy is an iPhone rental website designed to simplify the process from selecting a device to submitting a rental request. The website replaces a poster-based Google Drive catalog with a more structured one, while also providing a rental form that collects essential information before forwarding it directly to the admin's WhatsApp.",
 
     problem: [
-      "Katalog produk sebelumnya disimpan di Google Drive dalam bentuk poster atau gambar daftar produk, sehingga pelanggan harus melihat katalog satu per satu dan tidak dapat dengan mudah mencari perangkat yang diinginkan.",
-      "Proses penyewaan membutuhkan banyak tanya jawab antara pelanggan dan admin, seperti menanyakan harga, jaminan, metode pengambilan, dan detail penyewaan lainnya.",
+      "The previous product catalog was stored in Google Drive as posters or product list images, meaning customers had to view the catalog one by one and couldn't easily search for their desired device.",
+      "The rental process required extensive Q&A between customers and the admin, such as asking for prices, guarantees, pickup methods, and other rental details.",
     ],
 
     solution:
-      "Munivy menyediakan katalog perangkat yang lebih terstruktur sehingga pelanggan dapat melihat dan memilih iPhone dengan lebih mudah. Informasi rental juga tersedia langsung di website, sementara form rental mengumpulkan data yang dibutuhkan, termasuk metode pengambilan seperti mengambil langsung di toko atau COD. Jika pelanggan memilih COD, mereka dapat memasukkan lokasi yang diminta. Setelah form selesai, seluruh data tersebut otomatis disusun dan dikirim ke WhatsApp admin sehingga pelanggan tidak perlu melakukan tanya jawab berulang.",
+      "Munivy provides a more structured device catalog so customers can view and select iPhones more easily. Rental information is also directly available on the website, while the rental form collects necessary data, including pickup methods like in-store pickup or Cash on Delivery (COD). If the customer chooses COD, they can enter their requested location. Once the form is complete, all data is automatically compiled and sent to the admin's WhatsApp, eliminating repetitive Q&A.",
 
     features: [
       {
         number: "01",
         title: "Structured iPhone Catalog",
         description:
-          "Mengubah katalog berbasis poster di Google Drive menjadi katalog yang lebih terstruktur dan mudah dijelajahi.",
+          "Transforms a poster-based Google Drive catalog into a more structured and easy-to-navigate catalog.",
       },
       {
         number: "02",
         title: "Rental Information",
         description:
-          "Informasi harga, jaminan, dan ketentuan rental tersedia langsung sehingga pelanggan dapat memahami detail penyewaan sebelum menghubungi admin.",
+          "Pricing, guarantees, and rental terms are readily available so customers can understand the rental details before contacting the admin.",
       },
       {
         number: "03",
         title: "Rental Form",
         description:
-          "Form rental mengumpulkan data yang dibutuhkan, termasuk perangkat, metode pengambilan, dan informasi penyewaan lainnya.",
+          "The rental form collects necessary data, including the device, pickup method, and other rental information.",
       },
       {
         number: "04",
         title: "WhatsApp Integration",
         description:
-          "Data rental otomatis disusun menjadi pesan WhatsApp yang lengkap dan dikirim kepada admin, termasuk lokasi yang diminta ketika pelanggan memilih metode COD.",
+          "Rental data is automatically compiled into a complete WhatsApp message and sent to the admin, including the requested location if the customer chooses the COD method.",
       },
     ],
 
@@ -312,23 +312,23 @@ export const Website = [
         number: "01",
         title: "Product Presentation",
         description:
-          "Mengubah katalog berbasis poster menjadi pengalaman browsing produk yang lebih terstruktur dan mudah digunakan.",
+          "Transforming a poster-based catalog into a more structured and user-friendly product browsing experience.",
       },
       {
         number: "02",
         title: "Rental Form Flow",
         description:
-          "Merancang form yang dapat menyesuaikan field berdasarkan metode pengambilan yang dipilih pelanggan, termasuk meminta lokasi ketika memilih COD.",
+          "Designing a form that adjusts its fields based on the customer's selected pickup method, including asking for a location when COD is selected.",
       },
       {
         number: "03",
         title: "WhatsApp Integration",
         description:
-          "Menyusun seluruh data dari form menjadi pesan WhatsApp yang lengkap sehingga admin tidak perlu menanyakan informasi yang sudah diberikan pelanggan.",
+          "Compiling all form data into a complete WhatsApp message so the admin doesn't need to ask for information the customer has already provided.",
       },
     ],
 
     learning:
-      "Project ini memperdalam pengalaman menggunakan Next.js dan membangun website bisnis yang tidak hanya berfokus pada visual, tetapi juga menyederhanakan alur pengguna dari memilih perangkat hingga mengajukan rental.",
+      "This project deepened my experience with Next.js and building a business website that not only focuses on visuals but also simplifies the user flow from selecting a device to submitting a rental request.",
   },
 ];
