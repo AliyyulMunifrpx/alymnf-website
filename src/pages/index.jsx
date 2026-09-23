@@ -11,7 +11,7 @@ const SITE_URL = "https://alymnf.my.id";
 export default function Home() {
   const title = "Aliyyul Munif — Full-Stack Web Developer";
   const description =
-    "Portfolio Aliyyul Munif, Full-Stack Web Developer yang membangun website modern, responsif, dan scalable menggunakan React, Next.js, dan teknologi web modern.";
+    "Portfolio of Aliyyul Munif, a Full-Stack Web Developer building modern, responsive, and scalable websites using React, Next.js, and modern web technologies.";
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function Home() {
         <link rel="canonical" href={SITE_URL} />
 
         {/* Language / region */}
-        <meta httpEquiv="content-language" content="id-ID" />
+        <meta httpEquiv="content-language" content="en-US" />
 
         {/* Theme */}
         <meta name="theme-color" content="#ffffff" />
@@ -49,7 +49,7 @@ export default function Home() {
         {/* Open Graph */}
         <meta property="og:type" content="website" />
 
-        <meta property="og:locale" content="id_ID" />
+        <meta property="og:locale" content="en_US" />
 
         <meta property="og:site_name" content="Aliyyul Munif" />
 
