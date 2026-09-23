@@ -59,7 +59,7 @@ export default function Home() {
 
         <meta property="og:url" content={SITE_URL} />
 
-        <meta property="og:image" content={`${SITE_URL}/og-image.png`} />
+        <meta property="og:image" content={`${SITE_URL}/og-image.webp`} />
 
         <meta
           property="og:image:alt"
@@ -77,7 +77,7 @@ export default function Home() {
 
         <meta name="twitter:description" content={description} />
 
-        <meta name="twitter:image" content={`${SITE_URL}/og-image.png`} />
+        <meta name="twitter:image" content={`${SITE_URL}/og-image.webp`} />
 
         {/* Structured Data */}
         <script

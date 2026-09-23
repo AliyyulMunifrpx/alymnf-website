@@ -173,7 +173,7 @@ export default function ProjectDetailPage() {
                 className="relative aspect-video w-full overflow-hidden lg:hidden"
               >
                 <Image
-                  src={`/assets/work section/${project.image}`}
+                  src={`/assets/work section/${project.imageHover}`}
                   alt={project.alt}
                   fill
                   className="object-cover"
