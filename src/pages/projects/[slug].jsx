@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Image from "next/image.js";
 import Link from "next/link.js";
-import { useRouter } from "next/router.js";
 import { motion } from "framer-motion";
 import { Website } from "../../../data/website.js";
 import MainLayout from "../../layouts/main-layouts.jsx";
@@ -13,17 +12,36 @@ const reveal = {
   transition: { duration: 0.5, ease: "easeOut" },
 };
 
-export default function ProjectDetailPage() {
-  const router = useRouter();
-  const { slug } = router.query;
+export async function getStaticPaths() {
+  return {
+    paths: Website.map((project) => ({
+      params: {
+        slug: project.slug,
+      },
+    })),
+    fallback: false,
+  };
+}
 
-  const project = Website.find((p) => p.slug === slug);
+export async function getStaticProps({ params }) {
+  const project = Website.find((p) => p.slug === params.slug);
 
   if (!project) {
-    return null;
+    return {
+      notFound: true,
+    };
   }
 
+  return {
+    props: {
+      project,
+    },
+  };
+}
+
+export default function ProjectDetailPage({ project }) {
   const projectUrl = `https://alymnf.my.id/projects/${project.slug}`;
+
   const projectImage = `https://alymnf.my.id/assets/work%20section/${project.imageHover}`;
 
   return (
@@ -32,63 +50,46 @@ export default function ProjectDetailPage() {
         <title>
           {project.name} — {project.category} | Aliyyul Munif
         </title>
-        {/* ... Meta tags lainnya tetap sama ... */}
+
         <meta name="description" content={project.shortDescription} />
-        <meta
-          name="keywords"
-          content={[
-            project.name,
-            project.category,
-            project.type,
-            project.role,
-            ...(project.techStack || []),
-            "Aliyyul Munif",
-            "Full-Stack Web Developer",
-            "Web Developer Indonesia",
-            "Web Development Portfolio",
-          ].join(", ")}
-        />
-        <meta name="author" content="Aliyyul Munif" />
-        <meta name="creator" content="Aliyyul Munif" />
-        <meta name="publisher" content="Aliyyul Munif" />
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        />
-        <meta
-          name="googlebot"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        />
-        <meta name="theme-color" content="#ffffff" />
+
         <link rel="canonical" href={projectUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="Aliyyul Munif" />
+
         <meta
           property="og:title"
           content={`${project.name} — ${project.category} | Aliyyul Munif`}
         />
+
         <meta property="og:description" content={project.shortDescription} />
+
         <meta property="og:url" content={projectUrl} />
+
         <meta property="og:image" content={projectImage} />
+
         <meta
           property="og:image:alt"
           content={`${project.name} project preview`}
         />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+
+        <meta property="og:type" content="website" />
+
+        <meta property="og:site_name" content="Aliyyul Munif" />
+
         <meta name="twitter:card" content="summary_large_image" />
+
         <meta
           name="twitter:title"
           content={`${project.name} — ${project.category}`}
         />
+
         <meta name="twitter:description" content={project.shortDescription} />
+
         <meta name="twitter:image" content={projectImage} />
+
         <meta
           name="twitter:image:alt"
           content={`${project.name} project preview`}
         />
-        {/* JSON-LD omitted for brevity but remains intact in your codebase */}
       </Head>
 
       <MainLayout>
@@ -170,7 +171,7 @@ export default function ProjectDetailPage() {
                   ...reveal.transition,
                   delay: 0.1,
                 }}
-                className="relative aspect-video w-full overflow-hidden lg:hidden"
+                className="relative aspect-[2/1] w-full overflow-hidden lg:hidden"
               >
                 <Image
                   src={`/assets/work section/${project.imageHover}`}
