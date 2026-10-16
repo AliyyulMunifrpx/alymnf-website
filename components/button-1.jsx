@@ -1,10 +1,15 @@
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
+import { handleSmoothScroll } from "../utils/scroll-to.js";
 
 export default function Button1({ href, text, className = "" }) {
   return (
     <Link
       href={href}
+      onClick={(e) => {
+        console.log("LINK DIKLIK:", href);
+        handleSmoothScroll(e, href);
+      }}
       className={`group flex justify-center text-sm lg:text-base items-center gap-4 border border-second h-fit px-2 py-2 bg-second text-primary transition-color duration-300 rounded-full w-fit ${className}`}
     >
       {/* Rolling text per character */}
