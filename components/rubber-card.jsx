@@ -4,29 +4,82 @@ import Image from "next/image";
 
 export default function RubberCard({ item }) {
   return (
-    <div className="flex w-full h-full flex-col backdrop-blur-md rounded-xl border-[1px] border-second3/20 bg-primary/20 overflow-hidden justify-between">
-      {/* Bagian Teks (flex-1 & min-h biar justify-between berfungsi mojok atas-bawah) */}
-      <div className="flex flex-col justify-between flex-1 p-8 font-poppins gap-6 min-h-[220px]">
-        {/* Grup ATAS: Mojok paling atas */}
-        <div className="flex flex-col gap-3">
-          <h3 className="w-fit text-3xl text-second3 font-bold">{item.name}</h3>
-          <p className="text-justify text-second3/70 text-sm font-light">
+    <div
+      className="
+        group relative flex w-full flex-col
+        overflow-hidden rounded-xl border border-second3/20
+        bg-primary/20 backdrop-blur-md
+        aspect-auto
+        sm:aspect-square
+      "
+    >
+      {/* Background tetap memenuhi seluruh card */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <Image
+          src={item.src2}
+          alt=""
+          fill
+          sizes="(max-width: 639px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 ease-out sm:group-hover:translate-x-4"
+        />
+      </div>
+
+      {/* Mobile: foto di atas */}
+      <div className="hidden md:block relative z-10 h-56 w-full shrink-0 overflow-hidden sm:absolute sm:inset-0 sm:h-auto">
+        <Image
+          src={item.src}
+          alt={item.name}
+          fill
+          sizes="(max-width: 639px) 100vw, 50vw"
+          className="
+            object-cover
+            sm:scale-110 sm:translate-x-8 
+            sm:transition-transform sm:duration-500 sm:ease-out
+            sm:group-hover:translate-x-0 sm:group-hover:translate-y-0
+          "
+        />
+      </div>
+
+      {/* Mobile: teks di bawah foto. Desktop: overlay seperti sebelumnya */}
+      <div
+        className="
+          relative z-10 flex flex-col justify-start p-4
+          font-poppins
+          sm:absolute sm:inset-0 sm:justify-between
+          sm:pointer-events-none
+        "
+      >
+        <div
+          className="
+            flex flex-col gap-3 rounded-xl border border-second3/10
+            bg-primary/60 p-4 backdrop-blur-md
+            sm:bg-primary/20
+            sm:pointer-events-auto
+          "
+        >
+          <h3 className="w-fit text-2xl font-bold text-second3 sm:text-3xl">
+            {item.name}
+          </h3>
+
+          <p className="text-justify text-sm font-light text-second3/80 sm:text-base sm:text-second3/70">
             {item.description}
           </p>
         </div>
-
-        {/* Grup BAWAH: Mojok paling bawah sebelum gambar */}
-        <div className="flex flex-col gap-3">
-          <div className="h-[1px] w-full bg-second3/10"></div>
-          <p className="text-center text-sm text-second3/50 font-poppins tracking-[0.2rem] font-light uppercase">
-            {item.type}
-          </p>
-        </div>
       </div>
-
-      {/* Bagian Gambar (Nempel di paling bawah card) */}
-      <div className="relative w-full aspect-[2/1] mt-auto">
-        <Image src={item.src} alt={item.name} fill className="object-cover" />
+      {/* Mobile: foto di atas */}
+      <div className="md:hidden relative z-10 aspect-[2/1.2] w-full shrink-0 overflow-hidden sm:absolute sm:inset-0 sm:h-auto">
+        <Image
+          src={item.src}
+          alt={item.name}
+          fill
+          sizes="(max-width: 639px) 100vw, 50vw"
+          className="
+    object-cover object-bottom
+            sm:scale-110 sm:translate-x-8 
+            sm:transition-transform sm:duration-500 sm:ease-out
+            sm:group-hover:translate-x-0 sm:group-hover:translate-y-0
+          "
+        />
       </div>
     </div>
   );

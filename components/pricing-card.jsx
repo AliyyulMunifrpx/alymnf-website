@@ -6,7 +6,7 @@ export default function PricingCard({ item }) {
   return (
     <div
       key={item.id}
-      className="w-full font-poppins gap-8 min-h-[520px] bg-primary/20 backdrop-blur-sm border-[1px] border-second3/20 rounded-2xl flex flex-col justify-between p-8 shadow-xl transition-colors duration-300 hover:border-second3/20"
+      className="w-full font-poppins gap-8 min-h-[520px] font-poppins bg-primary/20 backdrop-blur-sm border-[1px] border-second3/20 rounded-2xl flex flex-col justify-between p-8 shadow-xl transition-colors duration-300 hover:border-second3/20"
     >
       {/* BAGIAN ATAS: Header, Price & Description */}
       <div className="flex flex-col gap-4">
