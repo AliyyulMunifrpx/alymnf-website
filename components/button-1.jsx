@@ -5,7 +5,7 @@ export default function Button1({ href, text, className = "" }) {
   return (
     <Link
       href={href}
-      className={`group flex justify-center text-xs lg:text-base items-center gap-4 border border-second h-fit px-2 py-2 bg-second text-primary transition-color duration-300 rounded-full w-fit ${className}`}
+      className={`group flex justify-center text-sm lg:text-base items-center gap-4 border border-second h-fit px-2 py-2 bg-second text-primary transition-color duration-300 rounded-full w-fit ${className}`}
     >
       {/* Rolling text per character */}
       <span className="flex overflow-hidden h-5">

@@ -72,7 +72,7 @@ export default function Footer() {
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   {item.name}
                 </span>
-                <span className="opacity-0 -translate-x-2 text-xs transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                <span className="opacity-0 -translate-x-2 text-sm transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                   →
                 </span>
               </Link>
@@ -98,7 +98,7 @@ export default function Footer() {
                     {item.value}
                   </span>
                 </span>
-                <span className="opacity-0 -translate-x-2 text-xs transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 shrink-0">
+                <span className="opacity-0 -translate-x-2 text-sm transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 shrink-0">
                   →
                 </span>
               </Link>
@@ -160,7 +160,7 @@ export default function Footer() {
                 <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
                   {item.name}
                 </span>
-                <span className="opacity-0 -translate-x-2 text-xs transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                <span className="opacity-0 -translate-x-2 text-sm transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                   →
                 </span>
               </Link>
@@ -185,7 +185,7 @@ export default function Footer() {
                     {item.value}
                   </span>
                 </span>
-                <span className="opacity-0 -translate-x-2 text-xs transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                <span className="opacity-0 -translate-x-2 text-sm transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                   →
                 </span>
               </Link>

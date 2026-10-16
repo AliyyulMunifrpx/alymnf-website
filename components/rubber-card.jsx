@@ -18,7 +18,7 @@ export default function RubberCard({ item }) {
         {/* Grup BAWAH: Mojok paling bawah sebelum gambar */}
         <div className="flex flex-col gap-3">
           <div className="h-[1px] w-full bg-second3/10"></div>
-          <p className="text-center text-xs text-second3/50 font-poppins tracking-[0.2rem] font-light uppercase">
+          <p className="text-center text-sm text-second3/50 font-poppins tracking-[0.2rem] font-light uppercase">
             {item.type}
           </p>
         </div>

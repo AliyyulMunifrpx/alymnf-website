@@ -17,7 +17,7 @@ export default function PricingCard({ item }) {
 
         {/* Price Tag */}
         <div className="text-center">
-          <span className="text-xs uppercase font-mono tracking-wider text-second3/50 block mb-1">
+          <span className="text-sm uppercase font-mono tracking-wider text-second3/50 block mb-1">
             Starting at
           </span>
 
@@ -34,14 +34,14 @@ export default function PricingCard({ item }) {
 
         {/* Features List */}
         <div className="flex flex-col gap-2.5">
-          <span className="text-xs font-mono uppercase tracking-wider text-second3/40">
+          <span className="text-sm font-mono uppercase tracking-wider text-second3/40">
             What&apos;s included:
           </span>
           <ul className="flex flex-col gap-2">
             {item.features.map((feature, featureIndex) => (
               <li
                 key={featureIndex}
-                className="flex items-start gap-2.5 text-xs font-light text-second3/80"
+                className="flex items-start gap-2.5 text-sm font-light text-second3/80"
               >
                 <span className="text-sm leading-none text-second3/60">●</span>
                 <span>{feature}</span>
