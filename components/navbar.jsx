@@ -1,136 +1,177 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { information } from "../data/information.js";
+import { useRef, useState } from "react";
 import Image from "next/image.js";
+import Link from "next/link.js";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import Button3 from "./button-3.jsx";
+import { handleSmoothScroll } from "../utils/scroll-to.js";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const navRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const menu = [
+    { name: "Services", href: "#services" },
+    { name: "Selected Work", href: "#selected-work" },
+    { name: "About Me", href: "#about-me" },
+    { name: "Pricing", href: "#pricing" },
+  ];
+
+  const handleNavigation = (e, href) => {
+    setMenuOpen(false);
+    handleSmoothScroll(e, href);
+  };
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+
+    // Animasi navbar panjang hanya untuk desktop.
+    mm.add("(min-width: 1024px)", () => {
+      const nav = navRef.current;
+
+      const trigger = ScrollTrigger.create({
+        trigger: document.body,
+        start: `${window.innerHeight * 3}px top`,
+
+        onEnter: () => {
+          gsap.to(nav, {
+            width: "75%",
+            y: 12,
+            borderRadius: "15px",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            duration: 0.4,
+            ease: "power.out",
+          });
+
+          nav.classList.add("border", "border-white/15", "grayscale");
+        },
+
+        onLeaveBack: () => {
+          gsap.to(nav, {
+            width: "100%",
+            y: 0,
+            borderRadius: "0px",
+            backgroundColor: "transparent",
+            duration: 0.4,
+            ease: "power.out",
+          });
+
+          nav.classList.remove("border", "border-white/15", "grayscale");
+        },
+      });
+
+      return () => trigger.kill();
+    });
+
+    return () => mm.revert();
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full bg-primary font-sans font-extralight text-black px-4 lg:px-16 py-4">
-      <div className="w-full flex items-center justify-between">
-        {/* === KIRI: LOGO === */}
-        <div className="flex items-center font-bold text-xl">
-          <Link href="/" className="inline-block">
-            <Image
-              src="/assets/logo.webp"
-              alt={information.name}
-              width={600}
-              height={600}
-              className="h-12 w-auto object-contain"
-              priority
-            />
-          </Link>
-        </div>
+    <div
+      ref={navRef}
+      className="fixed top-0 left-0 right-0 z-50 mx-auto flex h-16 w-full items-center justify-between px-4 font-extralight font-poppins text-sm text-second3 backdrop-blur-md lg:px-8"
+    >
+      {/* Logo */}
+      <Link
+        href="/"
+        aria-label="Home"
+        onClick={(e) => handleNavigation(e, "/")}
+      >
+        <Image alt="logo" src="/assets/logo.svg" width={30} height={30} />
+      </Link>
 
-        {/* === KANAN: MENU DESKTOP (Langsung di-expand) === */}
-        <nav className="hidden md:flex items-center text-second2 gap-12 lg:gap-16">
+      {/* Desktop navigation */}
+      <nav className="hidden items-center gap-8 lg:flex">
+        {menu.map((item) => (
           <Link
-            href="#weddings"
-            className="hover:text-second transition-colors"
+            key={item.href}
+            href={item.href}
+            className="text-second3"
+            onClick={(e) => handleNavigation(e, item.href)}
           >
-            Weddings
+            {item.name}
           </Link>
+        ))}
+      </nav>
+
+      {/* Desktop CTA */}
+      <div className="hidden lg:block">
+        <Button3 href="#contact" text="Contact" />
+      </div>
+
+      {/* Mobile / small tablet burger */}
+      <button
+        type="button"
+        className="flex size-12 items-center justify-center rounded-lg border border-white/15 lg:hidden"
+        aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+        aria-expanded={menuOpen}
+        aria-controls="mobile-navigation"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? (
+          // Close icon: no morph animation
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        ) : (
+          // Burger icon
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 8h16" />
+            <path d="M4 16h16" />
+          </svg>
+        )}
+      </button>
+
+      {/* Mobile menu: appears instantly, without morph animation */}
+      {menuOpen && (
+        <nav
+          id="mobile-navigation"
+          className="absolute top-full left-4 right-4 mt-2 flex flex-col gap-2 rounded-xl border border-white/15 bg-black/90 p-4 text-sm shadow-2xl backdrop-blur-xl lg:hidden"
+        >
+          {menu.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-lg px-4 py-4 text-second3/80 hover:bg-white/5 hover:text-second3"
+              onClick={(e) => handleNavigation(e, item.href)}
+            >
+              {item.name}
+            </Link>
+          ))}
+
           <Link
-            href="#packages"
-            className="hover:text-second transition-colors"
+            href="#contact"
+            className="rounded-lg border border-white/15 px-4 py-4 text-center text-second3"
+            onClick={(e) => handleNavigation(e, "#contact")}
           >
-            Packages
-          </Link>
-          <Link href="#contact" className="hover:text-second transition-colors">
             Contact
           </Link>
         </nav>
-
-        {/* === TOMBOL HAMBURGER MOBILE === */}
-        <div className="flex md:hidden items-center">
-          <button
-            onClick={() => setIsMobileOpen(true)}
-            className="focus:outline-none text-second"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* === MENU MOBILE FULL SCREEN OVERLAY === */}
-      {isMobileOpen && (
-        <div className="fixed inset-0 bg-primary z-50 md:hidden flex flex-col p-4 justify-between overflow-y-auto">
-          {/* Header Mobile Fullscreen (Logo & Tombol Close) */}
-          <div className="flex items-center justify-between w-full">
-            <Link href="/" className="inline-block">
-              <Image
-                src="/assets/logo.webp"
-                alt={information.name}
-                width={600}
-                height={600}
-                className="h-12 w-auto object-contain"
-                priority
-              />
-            </Link>
-            <button
-              onClick={() => setIsMobileOpen(false)}
-              className="focus:outline-none text-second"
-            >
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-
-          {/* Daftar Navigasi Mobile */}
-          <nav className="flex flex-col gap-8 my-auto pt-8 pb-8">
-            <Link
-              href="#weddings"
-              onClick={() => setIsMobileOpen(false)}
-              className="text-second text-2xl transition-colors"
-            >
-              Weddings
-            </Link>
-            <Link
-              href="#packages"
-              onClick={() => setIsMobileOpen(false)}
-              className="text-second text-2xl transition-colors"
-            >
-              Packages
-            </Link>
-            <Link
-              href="#contact"
-              onClick={() => setIsMobileOpen(false)}
-              className="text-second text-2xl transition-colors"
-            >
-              Contact
-            </Link>
-          </nav>
-
-          {/* Spacer Bawah */}
-          <div className="h-4"></div>
-        </div>
       )}
-    </header>
+    </div>
   );
 }
