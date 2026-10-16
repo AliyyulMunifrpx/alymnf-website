@@ -19,7 +19,11 @@ export default function RubberCard({ item }) {
   });
 
   // 1. Efek regangan vertikal untuk SELURUH CARD
-  const scaleY = useTransform(smoothVelocity, [-1200, 0, 1200], [1.1, 1, 1.1]);
+  const scaleY = useTransform(
+    smoothVelocity,
+    [-1200, 0, 1200],
+    [1.05, 1, 1.05],
+  );
 
   // 2. Arah tarikan (transformOrigin) asimetris ngikutin arah scroll
   const transformOrigin = useTransform(smoothVelocity, (v) => {

@@ -26,7 +26,11 @@ export default function RubberWrapper({ children, className }) {
   });
 
   // 2. Range velocity diturunin ke [-1200, 0, 1200] & scaleY dinaikkan ke 1.25 (melar hingga 25%)
-  const scaleY = useTransform(smoothVelocity, [-1200, 0, 1200], [1.1, 1, 1.1]);
+  const scaleY = useTransform(
+    smoothVelocity,
+    [-1200, 0, 1200],
+    [1.05, 1, 1.05],
+  );
 
   // 3. Arah tarikan (pivot point)
   const transformOrigin = useTransform(smoothVelocity, (v) => {

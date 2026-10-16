@@ -19,7 +19,11 @@ export default function PricingCard({ item }) {
   });
 
   // 1. Efek regangan vertikal untuk seluruh card
-  const scaleY = useTransform(smoothVelocity, [-1200, 0, 1200], [1.1, 1, 1.1]);
+  const scaleY = useTransform(
+    smoothVelocity,
+    [-1200, 0, 1200],
+    [1.05, 1, 1.05],
+  );
 
   // 2. Arah tarikan (transformOrigin) asimetris ngikutin arah scroll
   const transformOrigin = useTransform(smoothVelocity, (v) => {
@@ -46,11 +50,10 @@ export default function PricingCard({ item }) {
 
         {/* Price Tag */}
         <div className="text-center">
-          
-            <span className="text-xs uppercase font-mono tracking-wider text-second3/50 block mb-1">
-              Starting at
-            </span>
-        
+          <span className="text-xs uppercase font-mono tracking-wider text-second3/50 block mb-1">
+            Starting at
+          </span>
+
           <span className="text-4xl font-bold text-second3">{item.price}</span>
         </div>
 
