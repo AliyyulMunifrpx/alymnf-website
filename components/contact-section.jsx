@@ -126,7 +126,7 @@ export default function ContactSection() {
           Let&apos;s Connect{" "}
         </h2>
         {/* KONTEN UTAMA (FORM + INFO KANAN) */}
-        <RubberWrapper className="relative row-start-1 row-end-2 col-start-1 z-10 col-end-2 flex flex-col lg:flex-row mt-8 lg:-mt-8  gap-8">
+        <div className="relative row-start-1 row-end-2 col-start-1 z-10 col-end-2 flex flex-col lg:flex-row mt-8 lg:-mt-8  gap-8">
           {/* --- KOTAK KIRI: FORM START YOUR PROJECT --- */}
           <div className="h-full w-full border-[1px] border-second3/20 backdrop-blur-sm bg-primary/20 rounded-xl p-8 flex flex-col gap-8">
             <div>
@@ -400,7 +400,7 @@ export default function ContactSection() {
               </span>
             </div>
           </div>
-        </RubberWrapper>
+        </div>
       </div>
 
       {/* BACKGROUND VIDEO */}

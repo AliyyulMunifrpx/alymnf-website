@@ -1,47 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import {
-  motion,
-  useScroll,
-  useVelocity,
-  useSpring,
-  useTransform,
-} from "framer-motion";
 
 export default function RubberCard({ item }) {
-  const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 30,
-    stiffness: 150,
-  });
-
-  // 1. Efek regangan vertikal untuk SELURUH CARD
-  const scaleY = useTransform(
-    smoothVelocity,
-    [-1200, 0, 1200],
-    [1.05, 1, 1.05],
-  );
-
-  // 2. Arah tarikan (transformOrigin) asimetris ngikutin arah scroll
-  const transformOrigin = useTransform(smoothVelocity, (v) => {
-    if (v > 0) return "bottom"; // Scroll ke bawah -> atas card ketarik
-    if (v < 0) return "top"; // Scroll ke atas -> bawah card ketarik
-    return "center";
-  });
-
   return (
-    // Bungkus card utama dengan motion.div supaya seluruh kotak ikut melar
-    <motion.div
-      style={{
-        scaleY,
-        transformOrigin,
-      }}
-      className="flex w-full h-full flex-col backdrop-blur-md rounded-xl border-[1px] border-second3/20 bg-primary/20 overflow-hidden justify-between"
-    >
-      {/* Bagian Teks (Dikasih flex-1 & min-h biar justify-between berfungsi mojok atas-bawah) */}
+    <div className="flex w-full h-full flex-col backdrop-blur-md rounded-xl border-[1px] border-second3/20 bg-primary/20 overflow-hidden justify-between">
+      {/* Bagian Teks (flex-1 & min-h biar justify-between berfungsi mojok atas-bawah) */}
       <div className="flex flex-col justify-between flex-1 p-8 font-poppins gap-6 min-h-[220px]">
         {/* Grup ATAS: Mojok paling atas */}
         <div className="flex flex-col gap-3">
@@ -64,6 +28,6 @@ export default function RubberCard({ item }) {
       <div className="relative w-full aspect-[2/1] mt-auto">
         <Image src={item.src} alt={item.name} fill className="object-cover" />
       </div>
-    </motion.div>
+    </div>
   );
 }
