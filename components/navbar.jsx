@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Button3 from "./button-3.jsx";
 import { handleSmoothScroll } from "../utils/scroll-to.js";
+import { createPortal } from "react-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,7 +75,7 @@ export default function Navbar() {
   return (
     <div
       ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 mx-auto flex h-16 w-full items-center justify-between px-4 font-extralight font-poppins text-sm text-second3 backdrop-blur-md lg:px-8"
+      className="fixed top-0 left-0 right-0 z-50 mx-auto flex h-16 w-full bg-primary/20 items-center justify-between px-4 font-extralight font-poppins text-sm text-second3 backdrop-blur-md lg:px-8"
     >
       {/* Logo */}
       <Link
@@ -147,25 +148,25 @@ export default function Navbar() {
       </button>
 
       {/* Mobile menu: appears instantly, without morph animation */}
-      {menuOpen && (
-        <nav
-          id="mobile-navigation"
-          className="absolute top-full left-4 right-4 mt-2 flex flex-col gap-2 rounded-xl border border-white/15 bg-black/90 p-4 text-sm shadow-2xl backdrop-blur-xl lg:hidden"
-        >
-          {menu.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-lg px-4 py-4 text-second3/80 hover:bg-white/5 hover:text-second3"
-              onClick={(e) => handleNavigation(e, item.href)}
-            >
-              {item.name}
-            </Link>
-          ))}
-
-        
-        </nav>
-      )}
+      {menuOpen &&
+        createPortal(
+          <nav
+            id="mobile-navigation"
+            className="fixed top-[4.5rem] left-4 right-4 z-50 flex flex-col gap-2 rounded-xl border border-white/15 bg-black/20 p-4 font-poppins text-sm text-second3 shadow-2xl backdrop-blur-sm lg:hidden"
+          >
+            {menu.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-lg px-4 py-4 text-second3/80 hover:bg-white/5 hover:text-second3"
+                onClick={(e) => handleNavigation(e, item.href)}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>,
+          document.body,
+        )}
     </div>
   );
 }
