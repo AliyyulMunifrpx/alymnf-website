@@ -100,7 +100,7 @@ export default function Navbar() {
       </nav>
 
       {/* Desktop CTA */}
-      <div className="hidden lg:block">
+      <div className="ml-auto lg:ml-0 mr-4 lg:mr-0">
         <Button3 href="#contact" text="Contact" />
       </div>
 
@@ -163,13 +163,7 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <Link
-            href="#contact"
-            className="rounded-lg border border-white/15 px-4 py-4 text-center text-second3"
-            onClick={(e) => handleNavigation(e, "#contact")}
-          >
-            Contact
-          </Link>
+        
         </nav>
       )}
     </div>
