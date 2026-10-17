@@ -9,7 +9,7 @@ export default function Button3({ href, text, className = "" }) {
         console.log("LINK DIKLIK:", href);
         handleSmoothScroll(e, href);
       }}
-      className={`group flex justify-center items-center gap-4 border border-second h-fit px-2 py-1 bg-second text-primary transition-color duration-300 rounded-full w-fit font-normal ${className}`}
+      className={`group flex justify-center items-center gap-4 h-fit px-2 py-1 bg-second3 text-primary transition-color duration-300 rounded-full w-fit font-normal ${className}`}
     >
       {/* Rolling text per character */}
       <span className="flex overflow-hidden h-5">

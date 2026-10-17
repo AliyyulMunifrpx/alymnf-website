@@ -16,7 +16,7 @@ export default function AboutSection() {
         <h2 className="text-4xl lg:text-9xl text-center font-semibold text-second3 pt-40">
           About Me{" "}
         </h2>
-        <div className="w-full h-full lg:h-100 flex flex-col lg:flex-row gap-8 rounded-2xl pointer-events-none mt-8 lg:-mt-8 px-4 lg:px-32">
+        <div className="w-full h-full lg:h-100 flex flex-col lg:flex-row gap-8 rounded-2xl pointer-events-none mt-8 lg:-mt-8 px-4 lg:px-8 xl:px-32">
           <div className="relative w-full aspect-square shrink-0 border-[1px] backdrop-blur-sm border-second3/20 rounded-xl overflow-hidden lg:w-72 lg:aspect-square">
             <Image
               alt="aliyyul munif web developers photo"

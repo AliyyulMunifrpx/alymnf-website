@@ -10,10 +10,10 @@ export default function Button2({ href, text, className = "" }) {
         console.log("LINK DIKLIK:", href);
         handleSmoothScroll(e, href);
       }}
-      className={`group flex justify-center text-sm lg:text-base items-center gap-4 font-light border border-second  h-fit px-2 py-2 rounded-full w-fit ${className}`}
+      className={`group flex justify-center text-sm lg:text-base items-center gap-4 font-light bg-second3 h-fit px-2 py-2 rounded-full w-fit font-normal ${className}`}
     >
       {/* Rolling text per character */}
-      <span className="flex overflow-hidden h-5">
+      <span className="flex overflow-hidden h-5 text-primary">
         {Array.from(text).map((char, i) => (
           <span
             key={`${char}-${i}`}
@@ -43,7 +43,7 @@ export default function Button2({ href, text, className = "" }) {
       {/* Animated icon */}
       <FiArrowDownRight
         size={20}
-        className="shrink-0 bg-second text-primary rounded-full transition-transform duration-300 group-hover:rotate-50"
+        className="shrink-0 bg-primary text-second3 rounded-full transition-transform duration-300 group-hover:rotate-50"
       />
     </Link>
   );

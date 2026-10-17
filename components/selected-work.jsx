@@ -4,7 +4,7 @@ import RubberCard from "./rubber-card.jsx";
 
 export default function SelectedWorkSection() {
   return (
-    <div className="relative w-full flex flex-col px-4 lg:px-24">
+    <div className="relative w-full flex flex-col px-4 lg:px-8 xl:px-24">
       <h2 className="text-4xl lg:text-9xl text-center z-10 font-semibold text-second3 pt-40">
         Selected Work
       </h2>

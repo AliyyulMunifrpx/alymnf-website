@@ -3,7 +3,7 @@ import PricingCard from "./pricing-card.jsx";
 
 export default function PricingSection() {
   return (
-    <div className="relative w-full flex flex-col px-4 lg:px-24 font-poppins">
+    <div className="relative w-full flex flex-col px-4 lg:px-8 xl:px-24 font-poppins">
       <h2 className="text-4xl lg:text-9xl text-center z-10 font-semibold text-second3 pt-40">
         Pricing{" "}
       </h2>

@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Navbar() {
   const navRef = useRef(null);
   const [menuOpen, setMenuOpen] = useState(false);
-
   const menu = [
     { name: "Services", href: "#services" },
     { name: "Selected Work", href: "#selected-work" },
@@ -34,22 +33,27 @@ export default function Navbar() {
     // Animasi navbar panjang hanya untuk desktop.
     mm.add("(min-width: 1024px)", () => {
       const nav = navRef.current;
-
       const trigger = ScrollTrigger.create({
         trigger: document.body,
-        start: `${window.innerHeight * 3}px top`,
+        start: `${window.innerHeight * 3 + 800}px top`,
 
         onEnter: () => {
           gsap.to(nav, {
             width: "75%",
             y: 12,
             borderRadius: "15px",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
             duration: 0.4,
-            ease: "power.out",
+            ease: "power2.out",
           });
 
-          nav.classList.add("border", "border-white/15", "grayscale");
+          nav.classList.add(
+            "border",
+            "border-white/15",
+            "backdrop-blur-md",
+            "lg:bg-primary/50",
+          );
+          // FIX: harus pakai prefix lg:, sesuai class di className awal
+          nav.classList.remove("lg:mix-blend-difference", "lg:bg-primary/0");
         },
 
         onLeaveBack: () => {
@@ -57,12 +61,21 @@ export default function Navbar() {
             width: "100%",
             y: 0,
             borderRadius: "0px",
-            backgroundColor: "transparent",
             duration: 0.4,
-            ease: "power.out",
+            ease: "power2.out",
+            onComplete: () => {
+              // FIX: pakai prefix lg: biar nggak aktif di mobile
+              nav.classList.add("lg:mix-blend-difference");
+            },
           });
 
-          nav.classList.remove("border", "border-white/15", "grayscale");
+          nav.classList.remove(
+            "border",
+            "border-white/15",
+            "backdrop-blur-md",
+            "lg:bg-primary/50",
+          );
+          nav.classList.add("lg:bg-primary/0");
         },
       });
 
@@ -75,7 +88,7 @@ export default function Navbar() {
   return (
     <div
       ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 mx-auto flex h-16 w-full bg-primary/20 items-center justify-between px-4 font-extralight font-poppins text-sm text-second3 backdrop-blur-md lg:px-8"
+      className="fixed top-0 left-0  lg:mix-blend-difference  right-0 z-50 mx-auto flex h-16 w-full  bg-second3 lg:bg-primary/0 items-center border-b border-primary lg:border-none justify-between px-4 font-extralight font-poppins text-sm text-second3 lg:px-8"
     >
       {/* Logo */}
       <Link
@@ -83,16 +96,22 @@ export default function Navbar() {
         aria-label="Home"
         onClick={(e) => handleNavigation(e, "/")}
       >
-        <Image alt="logo" src="/assets/logo.svg" width={30} height={30} />
+        <Image
+          alt="logo"
+          src="/assets/logo.svg"
+          width={30}
+          height={30}
+          className="brightness-0 lg:invert "
+        />
       </Link>
 
       {/* Desktop navigation */}
-      <nav className="hidden items-center gap-8 lg:flex">
+      <nav className="hidden text-second3 items-center gap-8 lg:flex">
         {menu.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="text-second3"
+            className=" font-normal"
             onClick={(e) => handleNavigation(e, item.href)}
           >
             {item.name}
@@ -101,14 +120,14 @@ export default function Navbar() {
       </nav>
 
       {/* Desktop CTA */}
-      <div className="ml-auto lg:ml-0 mr-4 lg:mr-0">
+      <div className="ml-auto lg:ml-0 mr-4 lg:mr-0 invert lg:invert-0">
         <Button3 href="#contact" text="Contact" />
       </div>
 
       {/* Mobile / small tablet burger */}
       <button
         type="button"
-        className="flex size-12 items-center justify-center rounded-lg border border-white/15 lg:hidden"
+        className="flex size-12 items-center justify-center rounded-lg border border-white/15 lg:hidden text-primary"
         aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={menuOpen}
         aria-controls="mobile-navigation"
@@ -152,13 +171,13 @@ export default function Navbar() {
         createPortal(
           <nav
             id="mobile-navigation"
-            className="fixed top-[4.5rem] left-4 right-4 z-50 flex flex-col gap-2 rounded-xl border border-white/15 bg-black/20 p-4 font-poppins text-sm text-second3 shadow-2xl backdrop-blur-sm lg:hidden"
+            className="fixed top-[4rem] left-0 right-0 z-50 flex flex-col gap-2 border border-white/15 bg-second3 p-4 font-poppins text-sm text-primary shadow-2xl backdrop-blur-sm lg:hidden"
           >
             {menu.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-lg px-4 py-4 text-second3/80 hover:bg-white/5 hover:text-second3"
+                className="rounded-lg px-4 py-4  hover:bg-white/5"
                 onClick={(e) => handleNavigation(e, item.href)}
               >
                 {item.name}

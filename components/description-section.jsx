@@ -1,9 +1,8 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image.js";
 import TextLoop from "../src/components/TextLoop.jsx";
 import { information } from "../data/information.js";
 import { motion } from "framer-motion";
@@ -12,13 +11,111 @@ gsap.registerPlugin(ScrollTrigger);
 
 const contentItems = [
   `${information.name} designs and develops modern, `,
-  { type: "image", src: "/assets/work/1.webp", alt: "Work 1" },
-  "responsive websites that help businesses showcase their services, ",
-  { type: "image", src: "/assets/work/2.webp", alt: "Work 2" },
+  { type: "shape", seed: 0 },
+  " responsive websites that help businesses showcase their services, ",
+  { type: "shape", seed: 1 },
   " build credibility, and connect with more ",
-  { type: "image", src: "/assets/work/3.webp", alt: "Work 3" },
-  "customers.",
+  { type: "shape", seed: 2 },
+  " customers.",
 ];
+// Bikin titik-titik polygon bergerigi (starburst / seal)
+const burst = (points, outer, inner) =>
+  Array.from({ length: points * 2 }, (_, i) => {
+    const r = i % 2 === 0 ? outer : inner;
+    const a = (Math.PI * i) / points - Math.PI / 2;
+    return `${(50 + r * Math.cos(a)).toFixed(1)},${(50 + r * Math.sin(a)).toFixed(1)}`;
+  }).join(" ");
+
+// Kumpulan bentuk retro (viewBox 0 0 100 100, warna ikut currentColor)
+const SHAPES = [
+  // Sparkle 4 titik
+  <path
+    key="sparkle"
+    d="M50 0C54 30 70 46 100 50C70 54 54 70 50 100C46 70 30 54 0 50C30 46 46 30 50 0Z"
+  />,
+  // Lingkaran
+  <circle key="circle" cx="50" cy="50" r="46" />,
+  // Bunga
+  <g key="flower">
+    <circle cx="50" cy="24" r="22" />
+    <circle cx="76" cy="50" r="22" />
+    <circle cx="50" cy="76" r="22" />
+    <circle cx="24" cy="50" r="22" />
+    <circle cx="50" cy="50" r="20" />
+  </g>,
+  // Starburst tajam
+  <polygon key="burst" points={burst(12, 48, 34)} />,
+  // Seal bergelombang
+  <polygon key="seal" points={burst(16, 48, 42)} />,
+  // Plus tumpul
+  <path key="plus" d="M35 0h30v35h35v30H65v35H35V65H0V35h35z" />,
+  // Setengah lingkaran
+  <path key="half" d="M2 75A48 48 0 0 1 98 75Z" />,
+];
+
+function RetroShape({ seed = 0 }) {
+  const ref = useRef(null);
+  const indexRef = useRef(seed % SHAPES.length);
+  const [index, setIndex] = useState(indexRef.current);
+  const [visible, setVisible] = useState(false);
+
+  // Cuma animasi kalau lagi kelihatan di layar
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(([entry]) =>
+      setVisible(entry.isIntersecting),
+    );
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let timeout;
+
+    const tick = () => {
+      let next;
+      do {
+        next = Math.floor(Math.random() * SHAPES.length);
+      } while (next === indexRef.current);
+
+      indexRef.current = next;
+      setIndex(next);
+
+      // Jeda acak biar 3 bentuk nggak ganti barengan
+      timeout = setTimeout(tick, 1400 + Math.random() * 1200);
+    };
+
+    timeout = setTimeout(tick, 600 + seed * 400);
+
+    return () => clearTimeout(timeout);
+  }, [visible, seed]);
+
+  return (
+    <span
+      ref={ref}
+      className="reveal-image hidden lg:inline-flex items-center justify-center w-12 h-12  align-middle text-second3"
+    >
+      <motion.svg
+        key={index}
+        viewBox="0 0 100 100"
+        fill="currentColor"
+        aria-hidden="true"
+        className="w-full h-full"
+        initial={{ scale: 0.5, rotate: -90 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ type: "spring", stiffness: 260, damping: 18 }}
+      >
+        {SHAPES[index]}
+      </motion.svg>
+    </span>
+  );
+}
 
 function splitText(text) {
   return text.split(/(\s+)/).map((word, index) => {
@@ -46,18 +143,15 @@ export default function DescriptionSection() {
   const [loopSize, setLoopSize] = useState({ fontSize: 72, ribbonWidth: 96 });
 
   useLayoutEffect(() => {
-    // Fungsi buat ngecek ukuran layar saat load & resize
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        // Kalau di HP / Mobile, pakai ukuran yang lebih proporsional biar gak kepanjangan
         setLoopSize({ fontSize: 72, ribbonWidth: 96 });
       } else {
-        // Kalau di Desktop/Laptop, pakai ukuran gede sesuai request (72 & 96)
-        setLoopSize({ fontSize: 36, ribbonWidth: 48 });
+        setLoopSize({ fontSize: 36, ribbonWidth: 56 });
       }
     };
 
-    handleResize(); // Cek pas pertama render
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -94,92 +188,44 @@ export default function DescriptionSection() {
 
     return () => ctx.revert();
   }, []);
+
   return (
     <div
       ref={sectionRef}
       className="relative grid h-[100dvh] w-full grid-cols-1 lg:grid-cols-3 grid-rows-3 items-center overflow-hidden"
     >
-      <div className="absolute inset-0 z-10 pointer-events-none flex justify-center items-start">
-        <div className="w-[600px] h-[700px] bg-[#000000] rounded-full blur-[100px] opacity-70 translate-y-20"></div>
-        <div className="w-[600px] h-[700px] bg-[#000000] rounded-full blur-[100px] opacity-70 translate-y-60"></div>
-      </div>
-
-      <div
-        className="absolute inset-0 z-0 pointer-events-none opacity-40 lg:opacity-20"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #4105f7 1px, transparent 1px),
-            linear-gradient(to bottom, #4105f7 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 40%, black 80%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 40%, black 60%, transparent 100%)",
-        }}
-      />
-      <Image
-        alt="decoration"
-        src="/assets/decoration/plus.webp"
-        width={30}
-        height={30}
-        className="hidden lg:block col-start-3 row-start-2 mt-auto translate-x-70"
-      />
-
       <div
         ref={textRef}
-        className="z-20 col-start-1 col-end-1 lg:col-end-4 row-start-1 row-end-3 px-4 lg:px-32 text-center text-3xl lg:text-5xl font-light text-second3 flex flex-wrap items-center justify-center gap-y-4 gap-x-3"
+        className="z-20 col-start-1 col-end-1 lg:col-end-4 row-start-1 row-end-3 px-4 lg:px-32 flex items-center justify-center"
       >
-        {contentItems.map((item, index) => {
-          if (typeof item === "string") {
-            return <span key={index}>{splitText(item)}</span>;
-          } else {
-            return (
-              /* Dikasih kelas 'hidden lg:inline-flex' biar di mobile fotonya gak muncul */
-              <span
-                key={index}
-                className="reveal-image hidden lg:inline-flex relative items-center justify-center w-32 h-12 align-middle overflow-visible rounded-full border border-white/20 shadow-lg mx-2 cursor-pointer group"
-              >
-                <span className="relative w-full h-full overflow-hidden rounded-full block">
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                </span>
+        <p className="text-center text-3xl lg:text-5xl font-normal text-second3 leading-snug">
+          {contentItems.map((item, index) => {
+            if (typeof item === "string") {
+              return <span key={index}>{splitText(item)}</span>;
+            }
 
-                <span className="absolute left-1/2 -top-4 transform -translate-x-1/2 -translate-y-full w-64 h-36 bg-primary border border-white/20 rounded-2xl shadow-2xl overflow-hidden opacity-0 scale-95 pointer-events-none transition-all duration-300 group-hover:opacity-100 group-hover:scale-100 group-hover:pointer-events-auto z-50 block">
-                  <Image
-                    src={item.src}
-                    alt={`${item.alt} preview`}
-                    fill
-                    className="object-cover"
-                  />
-                </span>
-              </span>
-            );
-          }
-        })}
+            return <RetroShape key={index} seed={item.seed} />;
+          })}
+        </p>
       </div>
 
-      {/* TEXT LOOP DENGAN UKURAN FONT & RIBBON YANG DIPERBESAR */}
-      <div className="reveal-loop z-10 col-start-1 col-end-4 row-start-3 row-end-4 overflow-hidden">
+      {/* TEXT LOOP */}
+      <div className="reveal-loop z-10 col-start-1 col-end-4 row-start-3 row-end-4 overflow-hidden pb-24 font-poppins -rotate-0">
         <TextLoop
           text="alymnf"
           shape="wave"
           speed={40}
           direction="forward"
           separator="✦"
-          curviness={50}
-          fontSize={loopSize.fontSize} // Ukuran otomatis (36 di HP, 72 di Desktop)
+          curviness={20}
+          fontSize={loopSize.fontSize}
           fontWeight={800}
           letterSpacing={2}
           uppercase={false}
-          color="#ffffff"
+          color="#000000"
           ribbon
-          ribbonColor="#4105f7"
-          ribbonWidth={loopSize.ribbonWidth} // Lebar ribbon otomatis (48 di HP, 96 di Desktop)
+          ribbonColor="#ffffff"
+          ribbonWidth={loopSize.ribbonWidth}
           pauseOnHover={false}
         />
       </div>

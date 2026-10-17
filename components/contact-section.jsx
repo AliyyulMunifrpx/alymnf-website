@@ -95,7 +95,7 @@ export default function ContactSection() {
   };
 
   return (
-    <div className="relative min-h-[100dvh] w-full grid grid-cols-1 grid-rows-1 px-4 lg:px-56 font-poppins">
+    <div className="relative min-h-[100dvh] w-full grid grid-cols-1 grid-rows-1 px-4 lg:px-8 xl:px-56 font-poppins">
       {/* MODAL SUCCESS POP-UP */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-primary/20 backdrop-blur-md px-4">
@@ -126,7 +126,7 @@ export default function ContactSection() {
           Let&apos;s Connect{" "}
         </h2>
         {/* KONTEN UTAMA (FORM + INFO KANAN) */}
-        <div className="relative row-start-1 row-end-2 col-start-1 z-10 col-end-2 flex flex-col lg:flex-row mt-8 lg:-mt-8  gap-8">
+        <div className="relative row-start-1 row-end-2 col-start-1 z-10 col-end-2 flex flex-col md:flex-row mt-8 lg:-mt-8  gap-8">
           {/* --- KOTAK KIRI: FORM START YOUR PROJECT --- */}
           <div className="h-full w-full border-[1px] border-second3/20 backdrop-blur-sm bg-primary/20 rounded-xl p-8 flex flex-col gap-8">
             <div>
@@ -374,7 +374,7 @@ export default function ContactSection() {
           </div>
 
           {/* --- KOTAK KANAN: STICKY INFO KONTAK & LOKASI --- */}
-          <div className="top-32 h-fit sticky w-full lg:w-80 border-[1px] border-second3/20 backdrop-blur-sm bg-primary/20 rounded-xl font-poppins flex flex-col p-6 gap-6 shrink-0 text-second3">
+          <div className="top-32 h-fit sticky md:w-72 border-[1px] border-second3/20 backdrop-blur-sm bg-primary/20 rounded-xl font-poppins flex flex-col p-6 gap-6 shrink-0 text-second3">
             <p className="font-medium border-b border-second3/20 pb-3">
               Direct Connect
             </p>
