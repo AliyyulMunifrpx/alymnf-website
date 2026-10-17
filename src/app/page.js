@@ -8,7 +8,10 @@ import ServicesSection from "../../components/service-section.jsx";
 
 export default function Home() {
   return (
-    <main className="relative w-full bg-primary">
+    // [overflow-anchor:none] = matiin scroll anchoring browser.
+    // Pin GSAP + sticky + margin negatif ngubah layout pas scroll,
+    // dan browser suka "ngoreksi" posisi scroll (loncatan kecil).
+    <main className="relative w-full bg-primary [overflow-anchor:none]">
       {/* 1. Hero & Description */}
       <section className="relative z-20 bg-primary">
         <MainSection />
