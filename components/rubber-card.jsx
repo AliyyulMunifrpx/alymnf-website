@@ -19,7 +19,7 @@ export default function RubberCard({ item }) {
           alt=""
           fill
           sizes="(max-width: 639px) 100vw, 50vw"
-          className="object-cover transition-transform duration-500 ease-out sm:group-hover:translate-x-4"
+          className="object-cover "
         />
       </div>
 
@@ -31,10 +31,10 @@ export default function RubberCard({ item }) {
           fill
           sizes="(max-width: 639px) 100vw, 50vw"
           className={[
-            "object-cover",
+            "object-cover -translate-y-8",
             "sm:scale-110 sm:translate-x-8",
             "sm:transition-transform sm:duration-500 sm:ease-out",
-            "sm:group-hover:translate-x-0 sm:group-hover:translate-y-0",
+            "sm:group-hover:translate-x-0  ",
           ].join(" ")}
         />
       </div>
@@ -48,9 +48,9 @@ export default function RubberCard({ item }) {
       >
         <div
           className={[
-            "flex flex-col gap-3 rounded-xl border border-second3/10",
-            "bg-primary/60 p-4 backdrop-blur-md",
-            "sm:bg-primary/20 sm:pointer-events-auto",
+            "flex flex-col gap-3 rounded-xl ",
+            " p-4 ",
+            "sm:pointer-events-auto",
           ].join(" ")}
         >
           <h3 className="w-fit text-2xl font-bold text-second3 sm:text-3xl">

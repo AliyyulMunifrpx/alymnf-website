@@ -24,9 +24,9 @@ export const work = [
     src2: "/assets/work/bg/3.webp",
   },
   {
-    name: "Satnight",
+    name: "Potohaze",
     description:
-      "A stylish camera rental website designed to showcase photography equipment, highlight rental options, and make it easier for customers to find the right gear.",
+      "A premium website for photographers, built with a clean, minimal layout that lets the work take center stage and gives the brand a refined, high-end feel.",
     type: "web design & development",
     src: "/assets/work/4.webp",
     src2: "/assets/work/bg/4.webp",
