@@ -121,7 +121,7 @@ export default function Navbar() {
 
       {/* Desktop CTA */}
       <div className="ml-auto lg:ml-0 mr-4 lg:mr-0 invert lg:invert-0">
-        <Button3 href="#contact" text="Contact" />
+        <Button3 href="#contact" text="Let's Connect" />
       </div>
 
       {/* Mobile / small tablet burger */}
